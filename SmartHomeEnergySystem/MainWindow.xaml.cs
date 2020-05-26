@@ -23,6 +23,8 @@ namespace SmartHomeEnergySystem
         public MainWindow()
         {
             InitializeComponent();
+
+		//TEST
         }
     }
 }
