@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SmartHomeEnergySystem.Models
 {
-    public class ConsumerModel
+    public class ConsumerModel : INotifyPropertyChanged
     {
         string name;
         double consumption;
@@ -17,6 +18,7 @@ namespace SmartHomeEnergySystem.Models
             set
             {
                 name = value;
+                OnPropertyChanged(Name);
             }
         }
         public double Consumption
@@ -25,7 +27,7 @@ namespace SmartHomeEnergySystem.Models
             set
             {
                 consumption = value;
-
+                OnPropertyChanged("Consumption");
             }
         }
 
@@ -38,6 +40,16 @@ namespace SmartHomeEnergySystem.Models
         {
             Name = n;
             Consumption = c;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChangedEventArgs args = new PropertyChangedEventArgs(propertyName);
+                this.PropertyChanged(this, args);
+            }
         }
     }
 }

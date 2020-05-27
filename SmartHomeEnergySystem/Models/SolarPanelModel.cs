@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SmartHomeEnergySystem.Models
 {
-    public class SolarPanelModel
+    public class SolarPanelModel : INotifyPropertyChanged
     {
         string name;
         double maxPower;
@@ -18,6 +19,7 @@ namespace SmartHomeEnergySystem.Models
             set
             {
                 name = value;
+                OnPropertyChanged(Name);
             }
         }
         public double MaxPower
@@ -26,6 +28,7 @@ namespace SmartHomeEnergySystem.Models
             set
             {
                 maxPower = value;
+                OnPropertyChanged("MaxPower");
             }
         }
         public double CurrentPower
@@ -34,6 +37,7 @@ namespace SmartHomeEnergySystem.Models
             set
             {
                 currentPower = value;
+                OnPropertyChanged("CurrentPower");
             }
         }
 
@@ -48,6 +52,16 @@ namespace SmartHomeEnergySystem.Models
             Name = n;
             MaxPower = mp;
             CurrentPower = cp;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChangedEventArgs args = new PropertyChangedEventArgs(propertyName);
+                this.PropertyChanged(this, args);
+            }
         }
     }
 }

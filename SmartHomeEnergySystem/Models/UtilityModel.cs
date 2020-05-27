@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SmartHomeEnergySystem.Models
 {
-    public class UtilityModel
+    public class UtilityModel : INotifyPropertyChanged
     {
         double exchangePower;
         double price;
@@ -17,6 +18,7 @@ namespace SmartHomeEnergySystem.Models
             set
             {
                 exchangePower = value;
+                OnPropertyChanged("ExchangePower");
             }
         }
         public double Price
@@ -25,6 +27,7 @@ namespace SmartHomeEnergySystem.Models
             set
             {
                 price = value;
+                OnPropertyChanged("Price");
             }
         }
 
@@ -37,6 +40,16 @@ namespace SmartHomeEnergySystem.Models
         {
             ExchangePower = cp;
             Price = p;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChangedEventArgs args = new PropertyChangedEventArgs(propertyName);
+                this.PropertyChanged(this, args);
+            }
         }
     }
 }
