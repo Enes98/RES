@@ -4,9 +4,272 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmartHomeEnergySystem"
+        xmlns:local1="clr-namespace:SmartHomeEnergySystem.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+          Title="MainWindow" WindowStyle="None" ResizeMode="NoResize" Height="700.214" Width="1100.667" WindowStartupLocation="CenterScreen">
+    <Grid Margin="-7,-1,7,1">
+
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="Images/backoground1.jpg" Opacity="1"/>
+        </Grid.Background>
+        <Button Name="buttonExit" Margin="986,592,47,41"  Background="#FF01E5E7" Click="ButtonExit_Click" Cursor="Hand">
+            <Image Source="Images\blue-turn-off-png-2.png" Height="49" Width="41"/>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Stroke="Black"  
+                            StrokeThickness="0">
+                            <Ellipse.Fill>
+                                <RadialGradientBrush>
+                                    <RadialGradientBrush.Transform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY="0.65" />
+                                        </TransformGroup>
+                                    </RadialGradientBrush.Transform>
+                                    <GradientStop Offset="0"  
+                                        Color="White" />
+                                    <GradientStop Offset="1"  
+                                        Color="#FF8EFFFF" />
+                                    <GradientStop Offset="1"  
+                                        Color="#FF91FFFF" />
+                                </RadialGradientBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <ContentPresenter HorizontalAlignment="Center"  
+                            VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="solarBtn"  Margin="863,556,170,77"  Background="#FF01E5E7" Cursor="Hand" Click="SolarBtn_Click">
+            <Image Source="Images\1228_-_Solar_Panel-512.png" Height="66" Width="57"/>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Stroke="Black"  
+                            StrokeThickness="0">
+                            <Ellipse.Fill>
+                                <RadialGradientBrush>
+                                    <RadialGradientBrush.Transform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY="0.65" />
+                                        </TransformGroup>
+                                    </RadialGradientBrush.Transform>
+                                    <GradientStop Offset="0"  
+                                        Color="White" />
+                                    <GradientStop Offset="1"  
+                                        Color="#FF8EFFFF" />
+                                    <GradientStop Offset="1"  
+                                        Color="#FF91FFFF" />
+                                </RadialGradientBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <ContentPresenter HorizontalAlignment="Center"  
+                            VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="consumerBtn" Margin="757,461,276,172"  Background="#FF01E5E7" Cursor="Hand" Click="ConsumerBtn_Click">
+            <Image Source="Images\consumers.png" Height="59" Width="45"/>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Stroke="Black"  
+                            StrokeThickness="0">
+                            <Ellipse.Fill>
+                                <RadialGradientBrush>
+                                    <RadialGradientBrush.Transform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY="0.65" />
+                                        </TransformGroup>
+                                    </RadialGradientBrush.Transform>
+                                    <GradientStop Offset="0"  
+                                        Color="White" />
+                                    <GradientStop Offset="1"  
+                                        Color="#FF8EFFFF" />
+                                    <GradientStop Offset="1"  
+                                        Color="#FF91FFFF" />
+                                </RadialGradientBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <ContentPresenter HorizontalAlignment="Center"  
+                            VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="btnHome"  Margin="870,327,163,306"  Background="#FF01E5E7" Cursor="Hand" Click="ButtonHome_Click">
+            <Image Source="Images\Home-PNG-Image.png" Height="48" Width="44" RenderTransformOrigin="0.5,0.5"/>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Stroke="Black"  
+                            StrokeThickness="0">
+                            <Ellipse.Fill>
+                                <RadialGradientBrush>
+                                    <RadialGradientBrush.Transform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY="0.65" />
+                                        </TransformGroup>
+                                    </RadialGradientBrush.Transform>
+                                    <GradientStop Offset="0"  
+                                        Color="White" />
+                                    <GradientStop Offset="1"  
+                                        Color="#FF8EFFFF" />
+                                    <GradientStop Offset="1"  
+                                        Color="#FF91FFFF" />
+                                </RadialGradientBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <ContentPresenter HorizontalAlignment="Center"  
+                            VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="batteryBtn" Margin="957,446,76,186"  Background="#FF01E5E7" Cursor="Hand" Click="BatteryBtn_Click">
+            <Image Source="Images\battery_half-512.png" Height="49" Width="45" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-89.681"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Stroke="Black"  
+                            StrokeThickness="0">
+                            <Ellipse.Fill>
+                                <RadialGradientBrush>
+                                    <RadialGradientBrush.Transform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY="0.65" />
+                                        </TransformGroup>
+                                    </RadialGradientBrush.Transform>
+                                    <GradientStop Offset="0"  
+                                        Color="White" />
+                                    <GradientStop Offset="1"  
+                                        Color="#FF8EFFFF" />
+                                    <GradientStop Offset="1"  
+                                        Color="#FF91FFFF" />
+                                </RadialGradientBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <ContentPresenter HorizontalAlignment="Center"  
+                            VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="chartBtn" Margin="958,79,75,554"  Background="#FF01E5E7" Cursor="Hand" Click="ChartBtn_Click">
+            <Image Source="Images\Data-Combo-Chart-icon.png" Height="49" Width="44" RenderTransformOrigin="0.5,0.5"/>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Stroke="Black"  
+                            StrokeThickness="0">
+                            <Ellipse.Fill>
+                                <RadialGradientBrush>
+                                    <RadialGradientBrush.Transform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY="0.65" />
+                                        </TransformGroup>
+                                    </RadialGradientBrush.Transform>
+                                    <GradientStop Offset="0"  
+                                        Color="White" />
+                                    <GradientStop Offset="1"  
+                                        Color="#FF8EFFFF" />
+                                    <GradientStop Offset="1"  
+                                        Color="#FF91FFFF" />
+                                </RadialGradientBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <ContentPresenter HorizontalAlignment="Center"  
+                            VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="evBtn" Margin="809,156,224,477"  Background="#FF01E5E7" Cursor="Hand" Click="EvBtn_Click">
+            <Image Source="Images\Car_Plug-256.png" Height="48" Width="44" RenderTransformOrigin="0.5,0.5"/>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Stroke="Black"  
+                            StrokeThickness="0">
+                            <Ellipse.Fill>
+                                <RadialGradientBrush>
+                                    <RadialGradientBrush.Transform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY="0.65" />
+                                        </TransformGroup>
+                                    </RadialGradientBrush.Transform>
+                                    <GradientStop Offset="0"  
+                                        Color="White" />
+                                    <GradientStop Offset="1"  
+                                        Color="#FF8EFFFF" />
+                                    <GradientStop Offset="1"  
+                                        Color="#FF91FFFF" />
+                                </RadialGradientBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <ContentPresenter HorizontalAlignment="Center"  
+                            VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="utilityBtn" Margin="981,227,52,406"  Background="#FF01E5E7" Cursor="Hand" Click="UtilityBtn_Click">
+            <Image Source="Images\utilll.png" Height="58" Width="54" RenderTransformOrigin="0.5,0.5"/>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Stroke="Black"  
+                            StrokeThickness="0">
+                            <Ellipse.Fill>
+                                <RadialGradientBrush>
+                                    <RadialGradientBrush.Transform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY="0.65" />
+                                        </TransformGroup>
+                                    </RadialGradientBrush.Transform>
+                                    <GradientStop Offset="0"  
+                                        Color="White" />
+                                    <GradientStop Offset="1"  
+                                        Color="#FF8EFFFF" />
+                                    <GradientStop Offset="1"  
+                                        Color="#FF91FFFF" />
+                                </RadialGradientBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <ContentPresenter HorizontalAlignment="Center"  
+                            VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Grid x:Name="gridContainer" HorizontalAlignment="Left" Height="474" Margin="10,185,0,0" VerticalAlignment="Top" Width="733">
+            <local1:HomeView x:Name="home"  Visibility="Collapsed" Margin="0,0,10,0"></local1:HomeView>
+            <local1:BatteryView x:Name="battery" Visibility="Collapsed"></local1:BatteryView>
+            <local1:ConsumerView x:Name="consumer" Visibility="Collapsed"></local1:ConsumerView>
+            <local1:eVehicleChargerView x:Name="ev" Visibility="Collapsed"></local1:eVehicleChargerView>
+            <local1:SolarPanelView x:Name="solar" Visibility="Collapsed"></local1:SolarPanelView>
+            <local1:UtilityView x:Name="utility" Visibility="Collapsed"></local1:UtilityView>
+            <local1:ChartView x:Name="chart" Visibility="Collapsed"></local1:ChartView>
+        </Grid>
+
+
+
+
+
+
+
+
+
     </Grid>
 </Window>

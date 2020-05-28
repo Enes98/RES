@@ -23,8 +23,60 @@ namespace SmartHomeEnergySystem
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = this;
+        }
 
-		//TEST
+        private void ButtonExit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ButtonHome_Click(object sender, RoutedEventArgs e)
+        {
+            SetActiveUserControl(home);
+        }
+
+        public void SetActiveUserControl(UserControl control)
+        {
+            home.Visibility = Visibility.Collapsed;
+            ev.Visibility = Visibility.Collapsed;
+            solar.Visibility = Visibility.Collapsed;
+            utility.Visibility = Visibility.Collapsed;
+            battery.Visibility = Visibility.Collapsed;
+            consumer.Visibility = Visibility.Collapsed;
+            chart.Visibility = Visibility.Collapsed;
+
+            control.Visibility = Visibility.Visible;
+        }
+
+        private void EvBtn_Click(object sender, RoutedEventArgs e)
+        {
+            SetActiveUserControl(ev);
+        }
+
+        private void UtilityBtn_Click(object sender, RoutedEventArgs e)
+        {
+            SetActiveUserControl(utility);
+        }
+
+        private void BatteryBtn_Click(object sender, RoutedEventArgs e)
+        {
+            SetActiveUserControl(battery);
+        }
+
+        private void ConsumerBtn_Click(object sender, RoutedEventArgs e)
+        {
+            SetActiveUserControl(consumer);
+        }
+
+        private void SolarBtn_Click(object sender, RoutedEventArgs e)
+        {
+            SetActiveUserControl(solar);
+        }
+
+        private void ChartBtn_Click(object sender, RoutedEventArgs e)
+        {
+            SetActiveUserControl(chart);
         }
     }
 }
