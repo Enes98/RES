@@ -27,7 +27,7 @@ namespace SmartHomeEnergySystem.Models
             set
             {
                 consumption = value;
-              //  OnPropertyChanged("Consumption");
+               OnPropertyChanged("Consumption");
             }
         }
 

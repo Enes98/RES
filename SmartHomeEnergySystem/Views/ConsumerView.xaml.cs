@@ -35,43 +35,21 @@ namespace SmartHomeEnergySystem.Views
             myList.Add(new ConsumerModel { Name = "Enes", Consumption = 69.77 });
             myList.Add(new ConsumerModel { Name = "Sladja", Consumption = 53.69 });
             myList.Add(new ConsumerModel { Name = "Enes", Consumption = 69.77 });
-            myList.Add(new ConsumerModel { Name = "Sladja", Consumption = 53.69 });
-            myList.Add(new ConsumerModel { Name = "Enes", Consumption = 69.77 });
-            myList.Add(new ConsumerModel { Name = "Sladja", Consumption = 53.69 });
-            myList.Add(new ConsumerModel { Name = "Enes", Consumption = 69.77 });
-            myList.Add(new ConsumerModel { Name = "Sladja", Consumption = 53.69 });
-            myList.Add(new ConsumerModel { Name = "Enes", Consumption = 69.77 });
-            myList.Add(new ConsumerModel { Name = "Sladja", Consumption = 53.69 });
-            myList.Add(new ConsumerModel { Name = "Enes", Consumption = 69.77 });
-            myList.Add(new ConsumerModel { Name = "Sladja", Consumption = 53.69 });
-            myList.Add(new ConsumerModel { Name = "Enes", Consumption = 69.77 });
-            myList.Add(new ConsumerModel { Name = "Sladja", Consumption = 53.69 });
-            myList.Add(new ConsumerModel { Name = "Enes", Consumption = 69.77 });
-            myList.Add(new ConsumerModel { Name = "Sladja", Consumption = 53.69 });
-            myList.Add(new ConsumerModel { Name = "Enes", Consumption = 69.77 });
-            myList.Add(new ConsumerModel { Name = "Sladja", Consumption = 53.69 });
-            myList.Add(new ConsumerModel { Name = "Enes", Consumption = 69.77 });
-            myList.Add(new ConsumerModel { Name = "Sladja", Consumption = 53.69 });
-            myList.Add(new ConsumerModel { Name = "Enes", Consumption = 69.77 });
-            myList.Add(new ConsumerModel { Name = "Sladja", Consumption = 53.69 });
-            myList.Add(new ConsumerModel { Name = "Enes", Consumption = 69.77 });
-            myList.Add(new ConsumerModel { Name = "Sladja", Consumption = 53.69 });
-            myList.Add(new ConsumerModel { Name = "Enes", Consumption = 69.77 });
-            myList.Add(new ConsumerModel { Name = "Sladja", Consumption = 53.69 });
-            myList.Add(new ConsumerModel { Name = "Enes", Consumption = 69.77 });
-            myList.Add(new ConsumerModel { Name = "Sladja", Consumption = 53.69 });
-            myList.Add(new ConsumerModel { Name = "Enes", Consumption = 69.77 });
-            myList.Add(new ConsumerModel { Name = "Sladja", Consumption = 53.69 });
-            myList.Add(new ConsumerModel { Name = "Enes", Consumption = 69.77 });
-            myList.Add(new ConsumerModel { Name = "Sladja", Consumption = 53.69 });
-            myList.Add(new ConsumerModel { Name = "Enes", Consumption = 69.77 });
-            myList.Add(new ConsumerModel { Name = "Sladja", Consumption = 53.69 });
-            myList.Add(new ConsumerModel { Name = "Enes", Consumption = 69.77 });
-
-
+           
+          
             stPerson.ItemsSource = myList;
           
 
+        }
+
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            if ((string.IsNullOrEmpty(textBoxName.Text)) && (string.IsNullOrEmpty(textBoxConsumption.Text)))
+                return;
+
+            myList.Add(new ConsumerModel { Name = textBoxName.Text, Consumption = 33 });
+            
+           
         }
     }
 }

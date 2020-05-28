@@ -6,7 +6,10 @@
              xmlns:local="clr-namespace:SmartHomeEnergySystem.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="Blue">
+    <UserControl.Background>
+        <SolidColorBrush Opacity="0.3" Color="LightBlue"/>
+    </UserControl.Background>
+    <Grid>
         <Label Content="SOLAR views" Margin="0,0,491,363"></Label>
     </Grid>
 </UserControl>

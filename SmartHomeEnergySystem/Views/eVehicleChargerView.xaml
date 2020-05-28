@@ -6,7 +6,10 @@
              xmlns:local="clr-namespace:SmartHomeEnergySystem.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="HotPink">
+    <UserControl.Background>
+        <SolidColorBrush Opacity="0.3" Color="LightBlue"/>
+    </UserControl.Background>
+    <Grid>
         <Label Content="EV View" Margin="0,0,444,341"></Label>
     </Grid>
 </UserControl>
