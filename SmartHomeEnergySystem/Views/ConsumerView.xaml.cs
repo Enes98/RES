@@ -47,7 +47,7 @@ namespace SmartHomeEnergySystem.Views
             if ((string.IsNullOrEmpty(textBoxName.Text)) && (string.IsNullOrEmpty(textBoxConsumption.Text)))
                 return;
 
-            myList.Add(new ConsumerModel { Name = textBoxName.Text, Consumption = 33 });
+            myList.Add(new ConsumerModel { Name = textBoxName.Text, Consumption = Double.Parse(textBoxConsumption.Text) });
             
            
         }
