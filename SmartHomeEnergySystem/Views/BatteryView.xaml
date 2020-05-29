@@ -21,13 +21,13 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button Opacity="1" Content="Add" HorizontalAlignment="Left" Height="22" Margin="486,160,0,0" VerticalAlignment="Top" Width="160" />
+        <Button Opacity="1" Content="Add" HorizontalAlignment="Left" Height="22" Margin="486,160,0,0" VerticalAlignment="Top" Width="160" Click="BtnAdd_Click"/>
         <Button Opacity="1" Content="Delete" HorizontalAlignment="Left" Height="22" Margin="486,204,0,0" VerticalAlignment="Top" Width="160"/>
         <Label Content="Name:" HorizontalAlignment="Left" Height="29" Margin="435,34,0,0" VerticalAlignment="Top" Width="92"/>
         <Label Content="Max power:" HorizontalAlignment="Left" Height="29" Margin="435,68,0,0" VerticalAlignment="Top" Width="92"/>
-        <Label Content="Consumption:" HorizontalAlignment="Left" Height="29" Margin="435,113,0,0" VerticalAlignment="Top" Width="92"/>
+        <Label Content="Capacity:" HorizontalAlignment="Left" Height="29" Margin="435,113,0,0" VerticalAlignment="Top" Width="92"/>
         <TextBox Name="textBoxName" HorizontalAlignment="Left" Height="23" Margin="552,34,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
         <TextBox Name="textBoxMaxPower" HorizontalAlignment="Left" Height="23" Margin="553,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="149"/>
-        <TextBox Name="textBoxConsumption" HorizontalAlignment="Left" Height="23" Margin="553,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+        <TextBox Name="textBoxCapacity" HorizontalAlignment="Left" Height="23" Margin="553,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
     </Grid>
 </UserControl>

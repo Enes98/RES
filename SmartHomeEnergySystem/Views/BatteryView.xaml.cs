@@ -1,4 +1,5 @@
-﻿using SmartHomeEnergySystem.ViewModels;
+﻿using SmartHomeEnergySystem.Models;
+using SmartHomeEnergySystem.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,14 @@ namespace SmartHomeEnergySystem.Views
             InitializeComponent();
             this.DataContext = new BatteryViewModel();
             listBoxBatteries.ItemsSource = BatteryViewModel.batteries;
+        }
+
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            if ((string.IsNullOrWhiteSpace(textBoxName.Text)) || (string.IsNullOrWhiteSpace(textBoxMaxPower.Text)) || string.IsNullOrWhiteSpace(textBoxCapacity.Text))
+                return;
+
+            BatteryViewModel.batteries.Add(new BatteryModel(textBoxName.Text, Double.Parse(textBoxMaxPower.Text),Double.Parse(textBoxCapacity.Text)));
         }
     }
 }

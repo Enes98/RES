@@ -14,8 +14,8 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>                    
                     <WrapPanel>
-                        <Label Width="135" BorderBrush="LightGray" BorderThickness="1" FontSize="25" Content="{Binding Name}"/>
-                        <Label Width="135" BorderBrush="LightGray" BorderThickness="1" FontSize="25" Content="{Binding Consumption}"/>
+                        <Label Width="135" BorderBrush="LightGray" BorderThickness="1" FontSize="16" Content="{Binding Name}"/>
+                        <Label Width="135" BorderBrush="LightGray" BorderThickness="1" FontSize="16" Content="{Binding Consumption}"/>
                     </WrapPanel>                   
                 </DataTemplate>
             </ListBox.ItemTemplate>

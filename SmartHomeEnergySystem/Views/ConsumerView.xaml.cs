@@ -42,7 +42,7 @@ namespace SmartHomeEnergySystem.Views
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            if ((string.IsNullOrEmpty(textBoxName.Text)) && (string.IsNullOrEmpty(textBoxConsumption.Text)))
+            if ((string.IsNullOrEmpty(textBoxName.Text)) || (string.IsNullOrEmpty(textBoxConsumption.Text)))
                 return;
 
             ConsumerViewModel.consumers.Add(new ConsumerModel(textBoxName.Text, Double.Parse(textBoxConsumption.Text)));
