@@ -36,19 +36,6 @@ namespace SmartHomeEnergySystem
             SetActiveUserControl(home);
         }
 
-        public void SetActiveUserControl(UserControl control)
-        {
-            home.Visibility = Visibility.Collapsed;
-            ev.Visibility = Visibility.Collapsed;
-            solar.Visibility = Visibility.Collapsed;
-            utility.Visibility = Visibility.Collapsed;
-            battery.Visibility = Visibility.Collapsed;
-            consumer.Visibility = Visibility.Collapsed;
-            chart.Visibility = Visibility.Collapsed;
-
-            control.Visibility = Visibility.Visible;
-        }
-
         private void EvBtn_Click(object sender, RoutedEventArgs e)
         {
             SetActiveUserControl(ev);
@@ -77,6 +64,19 @@ namespace SmartHomeEnergySystem
         private void ChartBtn_Click(object sender, RoutedEventArgs e)
         {
             SetActiveUserControl(chart);
+        }
+
+        public void SetActiveUserControl(UserControl control)
+        {
+            home.Visibility = Visibility.Collapsed;
+            ev.Visibility = Visibility.Collapsed;
+            solar.Visibility = Visibility.Collapsed;
+            utility.Visibility = Visibility.Collapsed;
+            battery.Visibility = Visibility.Collapsed;
+            consumer.Visibility = Visibility.Collapsed;
+            chart.Visibility = Visibility.Collapsed;
+
+            control.Visibility = Visibility.Visible;
         }
     }
 }

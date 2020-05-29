@@ -11,6 +11,5 @@
     </UserControl.Background>
     <Grid>
         <Label Content="Utility View" HorizontalAlignment="Left" Height="61" Margin="40,41,0,0" VerticalAlignment="Top" Width="288"/>
-
     </Grid>
 </UserControl>

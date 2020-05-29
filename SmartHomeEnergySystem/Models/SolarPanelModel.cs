@@ -19,7 +19,7 @@ namespace SmartHomeEnergySystem.Models
             set
             {
                 name = value;
-                OnPropertyChanged(Name);
+                OnPropertyChanged("Name");
             }
         }
         public double MaxPower

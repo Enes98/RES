@@ -8,7 +8,6 @@
         mc:Ignorable="d"
           Title="MainWindow" WindowStyle="None" ResizeMode="NoResize" Height="700.214" Width="1100.667" WindowStartupLocation="CenterScreen">
     <Grid Margin="-7,-1,7,1">
-
         <Grid.Background>
             <ImageBrush Stretch="Fill" ImageSource="Images/backoground1.jpg" Opacity="1"/>
         </Grid.Background>
@@ -17,8 +16,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Stroke="Black"  
-                            StrokeThickness="0">
+                        <Ellipse Stroke="Black" StrokeThickness="0">
                             <Ellipse.Fill>
                                 <RadialGradientBrush>
                                     <RadialGradientBrush.Transform>
@@ -26,17 +24,13 @@
                                             <ScaleTransform ScaleY="0.65" />
                                         </TransformGroup>
                                     </RadialGradientBrush.Transform>
-                                    <GradientStop Offset="0"  
-                                        Color="White" />
-                                    <GradientStop Offset="1"  
-                                        Color="#FF8EFFFF" />
-                                    <GradientStop Offset="1"  
-                                        Color="#FF91FFFF" />
+                                    <GradientStop Offset="0" Color="White" />
+                                    <GradientStop Offset="1" Color="#FF8EFFFF" />
+                                    <GradientStop Offset="1" Color="#FF91FFFF" />
                                 </RadialGradientBrush>
                             </Ellipse.Fill>
                         </Ellipse>
-                        <ContentPresenter HorizontalAlignment="Center"  
-                            VerticalAlignment="Center"/>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
@@ -46,8 +40,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Stroke="Black"  
-                            StrokeThickness="0">
+                        <Ellipse Stroke="Black" StrokeThickness="0">
                             <Ellipse.Fill>
                                 <RadialGradientBrush>
                                     <RadialGradientBrush.Transform>
@@ -55,17 +48,13 @@
                                             <ScaleTransform ScaleY="0.65" />
                                         </TransformGroup>
                                     </RadialGradientBrush.Transform>
-                                    <GradientStop Offset="0"  
-                                        Color="White" />
-                                    <GradientStop Offset="1"  
-                                        Color="#FF8EFFFF" />
-                                    <GradientStop Offset="1"  
-                                        Color="#FF91FFFF" />
+                                    <GradientStop Offset="0" Color="White" />
+                                    <GradientStop Offset="1" Color="#FF8EFFFF" />
+                                    <GradientStop Offset="1" Color="#FF91FFFF" />
                                 </RadialGradientBrush>
                             </Ellipse.Fill>
                         </Ellipse>
-                        <ContentPresenter HorizontalAlignment="Center"  
-                            VerticalAlignment="Center"/>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
@@ -75,8 +64,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Stroke="Black"  
-                            StrokeThickness="0">
+                        <Ellipse Stroke="Black" StrokeThickness="0">
                             <Ellipse.Fill>
                                 <RadialGradientBrush>
                                     <RadialGradientBrush.Transform>
@@ -84,17 +72,13 @@
                                             <ScaleTransform ScaleY="0.65" />
                                         </TransformGroup>
                                     </RadialGradientBrush.Transform>
-                                    <GradientStop Offset="0"  
-                                        Color="White" />
-                                    <GradientStop Offset="1"  
-                                        Color="#FF8EFFFF" />
-                                    <GradientStop Offset="1"  
-                                        Color="#FF91FFFF" />
+                                    <GradientStop Offset="0" Color="White" />
+                                    <GradientStop Offset="1" Color="#FF8EFFFF" />
+                                    <GradientStop Offset="1" Color="#FF91FFFF" />
                                 </RadialGradientBrush>
                             </Ellipse.Fill>
                         </Ellipse>
-                        <ContentPresenter HorizontalAlignment="Center"  
-                            VerticalAlignment="Center"/>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
@@ -104,8 +88,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Stroke="Black"  
-                            StrokeThickness="0">
+                        <Ellipse Stroke="Black" StrokeThickness="0">
                             <Ellipse.Fill>
                                 <RadialGradientBrush>
                                     <RadialGradientBrush.Transform>
@@ -113,17 +96,13 @@
                                             <ScaleTransform ScaleY="0.65" />
                                         </TransformGroup>
                                     </RadialGradientBrush.Transform>
-                                    <GradientStop Offset="0"  
-                                        Color="White" />
-                                    <GradientStop Offset="1"  
-                                        Color="#FF8EFFFF" />
-                                    <GradientStop Offset="1"  
-                                        Color="#FF91FFFF" />
+                                    <GradientStop Offset="0" Color="White" />
+                                    <GradientStop Offset="1" Color="#FF8EFFFF" />
+                                    <GradientStop Offset="1" Color="#FF91FFFF" />
                                 </RadialGradientBrush>
                             </Ellipse.Fill>
                         </Ellipse>
-                        <ContentPresenter HorizontalAlignment="Center"  
-                            VerticalAlignment="Center"/>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
@@ -142,8 +121,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Stroke="Black"  
-                            StrokeThickness="0">
+                        <Ellipse Stroke="Black" StrokeThickness="0">
                             <Ellipse.Fill>
                                 <RadialGradientBrush>
                                     <RadialGradientBrush.Transform>
@@ -151,17 +129,13 @@
                                             <ScaleTransform ScaleY="0.65" />
                                         </TransformGroup>
                                     </RadialGradientBrush.Transform>
-                                    <GradientStop Offset="0"  
-                                        Color="White" />
-                                    <GradientStop Offset="1"  
-                                        Color="#FF8EFFFF" />
-                                    <GradientStop Offset="1"  
-                                        Color="#FF91FFFF" />
+                                    <GradientStop Offset="0" Color="White" />
+                                    <GradientStop Offset="1" Color="#FF8EFFFF" />
+                                    <GradientStop Offset="1" Color="#FF91FFFF" />
                                 </RadialGradientBrush>
                             </Ellipse.Fill>
                         </Ellipse>
-                        <ContentPresenter HorizontalAlignment="Center"  
-                            VerticalAlignment="Center"/>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
@@ -171,8 +145,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Stroke="Black"  
-                            StrokeThickness="0">
+                        <Ellipse Stroke="Black" StrokeThickness="0">
                             <Ellipse.Fill>
                                 <RadialGradientBrush>
                                     <RadialGradientBrush.Transform>
@@ -180,17 +153,13 @@
                                             <ScaleTransform ScaleY="0.65" />
                                         </TransformGroup>
                                     </RadialGradientBrush.Transform>
-                                    <GradientStop Offset="0"  
-                                        Color="White" />
-                                    <GradientStop Offset="1"  
-                                        Color="#FF8EFFFF" />
-                                    <GradientStop Offset="1"  
-                                        Color="#FF91FFFF" />
+                                    <GradientStop Offset="0" Color="White" />
+                                    <GradientStop Offset="1" Color="#FF8EFFFF" />
+                                    <GradientStop Offset="1" Color="#FF91FFFF" />
                                 </RadialGradientBrush>
                             </Ellipse.Fill>
                         </Ellipse>
-                        <ContentPresenter HorizontalAlignment="Center"  
-                            VerticalAlignment="Center"/>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
@@ -200,8 +169,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Stroke="Black"  
-                            StrokeThickness="0">
+                        <Ellipse Stroke="Black" StrokeThickness="0">
                             <Ellipse.Fill>
                                 <RadialGradientBrush>
                                     <RadialGradientBrush.Transform>
@@ -209,17 +177,13 @@
                                             <ScaleTransform ScaleY="0.65" />
                                         </TransformGroup>
                                     </RadialGradientBrush.Transform>
-                                    <GradientStop Offset="0"  
-                                        Color="White" />
-                                    <GradientStop Offset="1"  
-                                        Color="#FF8EFFFF" />
-                                    <GradientStop Offset="1"  
-                                        Color="#FF91FFFF" />
+                                    <GradientStop Offset="0" Color="White" />
+                                    <GradientStop Offset="1" Color="#FF8EFFFF" />
+                                    <GradientStop Offset="1" Color="#FF91FFFF" />
                                 </RadialGradientBrush>
                             </Ellipse.Fill>
                         </Ellipse>
-                        <ContentPresenter HorizontalAlignment="Center"  
-                            VerticalAlignment="Center"/>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
@@ -229,8 +193,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Stroke="Black"  
-                            StrokeThickness="0">
+                        <Ellipse Stroke="Black" StrokeThickness="0">
                             <Ellipse.Fill>
                                 <RadialGradientBrush>
                                     <RadialGradientBrush.Transform>
@@ -238,17 +201,13 @@
                                             <ScaleTransform ScaleY="0.65" />
                                         </TransformGroup>
                                     </RadialGradientBrush.Transform>
-                                    <GradientStop Offset="0"  
-                                        Color="White" />
-                                    <GradientStop Offset="1"  
-                                        Color="#FF8EFFFF" />
-                                    <GradientStop Offset="1"  
-                                        Color="#FF91FFFF" />
+                                    <GradientStop Offset="0" Color="White" />
+                                    <GradientStop Offset="1" Color="#FF8EFFFF" />
+                                    <GradientStop Offset="1" Color="#FF91FFFF" />
                                 </RadialGradientBrush>
                             </Ellipse.Fill>
                         </Ellipse>
-                        <ContentPresenter HorizontalAlignment="Center"  
-                            VerticalAlignment="Center"/>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
@@ -262,14 +221,5 @@
             <local1:UtilityView x:Name="utility" Visibility="Collapsed"></local1:UtilityView>
             <local1:ChartView x:Name="chart" Visibility="Collapsed"></local1:ChartView>
         </Grid>
-
-
-
-
-
-
-
-
-
     </Grid>
 </Window>

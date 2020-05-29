@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MainClass.cs" />
     <Compile Include="ViewModels\BatteryViewModel.cs" />
     <Compile Include="ViewModels\ConsumerViewModel.cs" />
     <Compile Include="ViewModels\eVehicleChargerViewModel.cs" />
@@ -82,7 +83,6 @@
     <Compile Include="Views\UtilityView.xaml.cs">
       <DependentUpon>UtilityView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VML\ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

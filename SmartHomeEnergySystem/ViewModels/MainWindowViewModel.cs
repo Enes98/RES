@@ -9,8 +9,6 @@ namespace SmartHomeEnergySystem.ViewModels
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
-       
-
         protected void NotifyPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)
@@ -19,8 +17,6 @@ namespace SmartHomeEnergySystem.ViewModels
                 this.PropertyChanged(this, args);
             }
         }
-
-
         public event PropertyChangedEventHandler PropertyChanged;
     }
 }

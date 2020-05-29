@@ -10,27 +10,22 @@
         <SolidColorBrush Opacity="0.3" Color="LightBlue"/>
     </UserControl.Background>
     <Grid>
-        <ListBox Name="stPerson" Margin="10,28,445,30">
+        <ListBox Name="listBoxConsumers" Margin="10,28,445,30">
             <ListBox.ItemTemplate>
-                <DataTemplate>
-                    
+                <DataTemplate>                    
                     <WrapPanel>
                         <Label Width="135" BorderBrush="LightGray" BorderThickness="1" FontSize="25" Content="{Binding Name}"/>
                         <Label Width="135" BorderBrush="LightGray" BorderThickness="1" FontSize="25" Content="{Binding Consumption}"/>
-                    </WrapPanel>
-                   
+                    </WrapPanel>                   
                 </DataTemplate>
             </ListBox.ItemTemplate>
-
-
         </ListBox>
-
         <Button Opacity="1" Content="Add" HorizontalAlignment="Left" Height="21" Margin="355,104,0,0" VerticalAlignment="Top" Width="160" Click="BtnAdd_Click"/>
         <Button Opacity="1" Content="Delete" HorizontalAlignment="Left" Height="22" Margin="355,144,0,0" VerticalAlignment="Top" Width="160"/>
         <Label Content="Name:" HorizontalAlignment="Left" Height="29" Margin="355,28,0,0" VerticalAlignment="Top" Width="92"/>
         <Label Content="Consumption:" HorizontalAlignment="Left" Height="29" Margin="355,62,0,0" VerticalAlignment="Top" Width="92"/>
-        <TextBox Name="textBoxName" HorizontalAlignment="Left" Height="23" Margin="477,34,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="149"/>
-        <TextBox Name="textBoxConsumption" HorizontalAlignment="Left" Height="23" Margin="477,62,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="149"/>
+        <TextBox Name="textBoxName" HorizontalAlignment="Left" Height="23" Margin="477,34,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="149"/>
+        <TextBox Name="textBoxConsumption" HorizontalAlignment="Left" Height="23" Margin="477,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="149"/>
         <RadioButton Content="Turn On" HorizontalAlignment="Left" Height="20" Margin="355,184,0,0" VerticalAlignment="Top" Width="92" Background="#FF000202"/>
         <RadioButton Content="Turn Off" HorizontalAlignment="Left" Height="29" Margin="355,217,0,0" VerticalAlignment="Top" Width="92" Background="Black"/>
     </Grid>

@@ -1,4 +1,5 @@
 ﻿using SmartHomeEnergySystem.Models;
+using SmartHomeEnergySystem.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,24 +23,21 @@ namespace SmartHomeEnergySystem.Views
     /// </summary>
     public partial class ConsumerView : UserControl
     {
-
         public static ObservableCollection<ConsumerModel> myList = new ObservableCollection<ConsumerModel>();
 
         public ConsumerView()
         {
-
             InitializeComponent();
-
-            
+            this.DataContext = new ConsumerViewModel();
+            listBoxConsumers.ItemsSource = ConsumerViewModel.consumers;
+            /*SVE JE OVO BILO PRE
             myList.Add(new ConsumerModel { Name = "Sladja", Consumption = 53.69 });
             myList.Add(new ConsumerModel { Name = "Enes", Consumption = 69.77 });
             myList.Add(new ConsumerModel { Name = "Sladja", Consumption = 53.69 });
-            myList.Add(new ConsumerModel { Name = "Enes", Consumption = 69.77 });
-           
+            myList.Add(new ConsumerModel { Name = "Enes", Consumption = 69.77 });           
           
             stPerson.ItemsSource = myList;
-          
-
+            */
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
@@ -47,9 +45,7 @@ namespace SmartHomeEnergySystem.Views
             if ((string.IsNullOrEmpty(textBoxName.Text)) && (string.IsNullOrEmpty(textBoxConsumption.Text)))
                 return;
 
-            myList.Add(new ConsumerModel { Name = textBoxName.Text, Consumption = Double.Parse(textBoxConsumption.Text) });
-            
-           
+            ConsumerViewModel.consumers.Add(new ConsumerModel(textBoxName.Text, Double.Parse(textBoxConsumption.Text)));
         }
     }
 }
