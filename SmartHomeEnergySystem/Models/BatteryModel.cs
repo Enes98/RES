@@ -40,19 +40,21 @@ namespace SmartHomeEnergySystem.Models
                 OnPropertyChanged("Capacity");
             }
         }
-
+        /*
         public BatteryModel()
         {
             Name = "";
             MaxPower = 0;
             Capacity = 0;
         }
+        */
         public BatteryModel(string n, double mp, double c)
         {
             Name = n;
             MaxPower = mp;
             Capacity = c;
         }
+         
         
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)

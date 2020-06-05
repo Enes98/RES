@@ -26,15 +26,17 @@ namespace SmartHomeEnergySystem.Views
         {
             InitializeComponent();
             this.DataContext = new BatteryViewModel();
-            listBoxBatteries.ItemsSource = BatteryViewModel.batteries;
+            //listBoxBatteries.ItemsSource = BatteryViewModel.Batteries;
         }
 
+
+   
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
             if ((string.IsNullOrWhiteSpace(textBoxName.Text)) || (string.IsNullOrWhiteSpace(textBoxMaxPower.Text)) || string.IsNullOrWhiteSpace(textBoxCapacity.Text))
                 return;
 
-            BatteryViewModel.batteries.Add(new BatteryModel(textBoxName.Text, Double.Parse(textBoxMaxPower.Text),Double.Parse(textBoxCapacity.Text)));
-        }
+            BatteryViewModel.Batteries.Add(new BatteryModel(textBoxName.Text, Double.Parse(textBoxMaxPower.Text),Double.Parse(textBoxCapacity.Text)));
+        }        
     }
 }

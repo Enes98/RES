@@ -10,19 +10,19 @@
         <SolidColorBrush Opacity="0.3" Color="LightBlue"/>
     </UserControl.Background>
     <Grid>
-        <ListBox Name="listBoxBatteries" Margin="10,28,388,30">
+        <ListBox Name="listBoxBatteries" ItemsSource="{Binding Batteries}" SelectedItem="SelectedBattery" Margin="10,28,388,30">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>
                         <Label Width="90" BorderBrush="LightGray" BorderThickness="1" FontSize="16" Content="{Binding Name}"/>
                         <Label Width="90" BorderBrush="LightGray" BorderThickness="1" FontSize="16" Content="{Binding MaxPower}"/>
                         <Label Width="90" BorderBrush="LightGray" BorderThickness="1" FontSize="16" Content="{Binding Capacity}"/>
-                    </WrapPanel>
+                    </WrapPanel> 
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
         <Button Opacity="1" Content="Add" HorizontalAlignment="Left" Height="22" Margin="486,160,0,0" VerticalAlignment="Top" Width="160" Click="BtnAdd_Click"/>
-        <Button Opacity="1" Content="Delete" HorizontalAlignment="Left" Height="22" Margin="486,204,0,0" VerticalAlignment="Top" Width="160"/>
+        <Button Opacity="1" Content="Delete" Command="{Binding DeleteCommand}" HorizontalAlignment="Left" Height="22" Margin="486,204,0,0" VerticalAlignment="Top" Width="160" />
         <Label Content="Name:" HorizontalAlignment="Left" Height="29" Margin="435,34,0,0" VerticalAlignment="Top" Width="92"/>
         <Label Content="Max power:" HorizontalAlignment="Left" Height="29" Margin="435,68,0,0" VerticalAlignment="Top" Width="92"/>
         <Label Content="Capacity:" HorizontalAlignment="Left" Height="29" Margin="435,113,0,0" VerticalAlignment="Top" Width="92"/>
