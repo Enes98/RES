@@ -13,6 +13,17 @@ namespace SmartHomeEnergySystem.Models
         double maxPower;
         double capacity;
 
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChangedEventArgs args = new PropertyChangedEventArgs(propertyName);
+                this.PropertyChanged(this, args);
+            }
+        }
+
         public string Name
         {
             get { return name; }
@@ -56,14 +67,6 @@ namespace SmartHomeEnergySystem.Models
         }
          
         
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged(string propertyName)
-        {
-            if(PropertyChanged != null)
-            {
-                PropertyChangedEventArgs args = new PropertyChangedEventArgs(propertyName);
-                this.PropertyChanged(this, args);
-            }
-        }
+       
     }
 }

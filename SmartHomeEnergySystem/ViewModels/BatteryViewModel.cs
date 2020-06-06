@@ -1,4 +1,4 @@
-﻿using SmartHomeEnergySystem.Commands;
+﻿using SmartHomeEnergySystem.Command;
 using SmartHomeEnergySystem.Models;
 using System;
 using System.Collections.Generic;

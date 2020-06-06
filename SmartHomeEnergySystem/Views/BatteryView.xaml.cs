@@ -22,6 +22,8 @@ namespace SmartHomeEnergySystem.Views
     /// </summary>
     public partial class BatteryView : UserControl
     {
+
+
         public BatteryView()
         {
             InitializeComponent();
@@ -30,6 +32,8 @@ namespace SmartHomeEnergySystem.Views
         }
 
 
+        
+
    
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
@@ -37,6 +41,15 @@ namespace SmartHomeEnergySystem.Views
                 return;
 
             BatteryViewModel.Batteries.Add(new BatteryModel(textBoxName.Text, Double.Parse(textBoxMaxPower.Text),Double.Parse(textBoxCapacity.Text)));
-        }        
+        }     
+        
+
+        /*
+        private void DeleteClick(object sender, RoutedEventArgs e)
+        {
+            BatteryViewModel.Batteries.RemoveAt(BatteryViewModel.Batteries.Where<BatteryModel>();
+        }
+        */
+
     }
 }

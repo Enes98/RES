@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace SmartHomeEnergySystem.Commands
+namespace SmartHomeEnergySystem.Command
 {
     public class MyICommand : ICommand
     {

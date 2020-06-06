@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace SmartHomeEnergySystem.Models
 {
-    public class UtilityModel : INotifyPropertyChanged
+    public class UtilityModel /*: INotifyPropertyChanged*/
     {
         double exchangePower;
-        double price;
+        public double Price { get; set; }
 
         public double ExchangePower
         {
@@ -18,19 +18,20 @@ namespace SmartHomeEnergySystem.Models
             set
             {
                 exchangePower = value;
-                OnPropertyChanged("ExchangePower");
+              //  OnPropertyChanged("ExchangePower");
             }
         }
+        /*
         public double Price
         {
             get { return price; }
             set
             {
                 price = value;
-                OnPropertyChanged("Price");
+              //  OnPropertyChanged("Price");
             }
         }
-
+        */
         public UtilityModel()
         {
             ExchangePower = 0;
@@ -42,6 +43,7 @@ namespace SmartHomeEnergySystem.Models
             Price = p;
         }
 
+        /*
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
         {
@@ -51,5 +53,6 @@ namespace SmartHomeEnergySystem.Models
                 this.PropertyChanged(this, args);
             }
         }
+        */
     }
 }

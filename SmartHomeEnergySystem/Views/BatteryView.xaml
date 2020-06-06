@@ -12,11 +12,14 @@
     <Grid>
         <ListBox Name="listBoxBatteries" ItemsSource="{Binding Batteries}" SelectedItem="SelectedBattery" Margin="10,28,388,30">
             <ListBox.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate x:Name="datatemplate">
                     <WrapPanel>
-                        <Label Width="90" BorderBrush="LightGray" BorderThickness="1" FontSize="16" Content="{Binding Name}"/>
-                        <Label Width="90" BorderBrush="LightGray" BorderThickness="1" FontSize="16" Content="{Binding MaxPower}"/>
-                        <Label Width="90" BorderBrush="LightGray" BorderThickness="1" FontSize="16" Content="{Binding Capacity}"/>
+                        <Label Width="80" BorderBrush="LightGray" BorderThickness="1" FontSize="16" Content="{Binding Name}"/>
+                        <Label Width="80" BorderBrush="LightGray" BorderThickness="1" FontSize="16" Content="{Binding MaxPower}"/>
+                        <Label Width="80" BorderBrush="LightGray" BorderThickness="1" FontSize="16" Content="{Binding Capacity}"/>
+                        <Button Width="80" Content="Delete" Click="DeleteClick">
+                            
+                        </Button>
                     </WrapPanel> 
                 </DataTemplate>
             </ListBox.ItemTemplate>
