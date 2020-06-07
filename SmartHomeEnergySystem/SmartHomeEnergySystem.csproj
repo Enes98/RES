@@ -61,6 +61,7 @@
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\MyICommand.cs" />
     <Compile Include="Enums\BatteryEnum.cs" />
+    <Compile Include="Models\TimeModel.cs" />
     <Compile Include="SHES.cs" />
     <Compile Include="ViewModels\BatteryViewModel.cs" />
     <Compile Include="ViewModels\ConsumerViewModel.cs" />
@@ -175,6 +176,9 @@
     <Resource Include="Images\Home-PNG-Image.png" />
     <Resource Include="Images\homeBtttn.jpg" />
     <Resource Include="Images\utilll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\Clock.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
