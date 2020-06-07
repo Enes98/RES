@@ -51,14 +51,14 @@ namespace SmartHomeEnergySystem.Models
                 OnPropertyChanged("Capacity");
             }
         }
-        /*
+        
         public BatteryModel()
         {
             Name = "";
             MaxPower = 0;
             Capacity = 0;
         }
-        */
+        
         public BatteryModel(string n, double mp, double c)
         {
             Name = n;
@@ -66,7 +66,5 @@ namespace SmartHomeEnergySystem.Models
             Capacity = c;
         }
          
-        
-       
     }
 }

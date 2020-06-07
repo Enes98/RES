@@ -1,4 +1,5 @@
 ﻿using SmartHomeEnergySystem.Command;
+using SmartHomeEnergySystem.Commands;
 using SmartHomeEnergySystem.Models;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace SmartHomeEnergySystem.ViewModels
         public static ObservableCollection<BatteryModel> Batteries { get; set; }
         public BatteryModel selectedBattery;
 
-        public static MyICommand DeleteCommand { get; set; }
+        public static MyICommand DeleteBatteryCommand { get; set; }
 
         public BatteryModel SelectedBattery
         {
@@ -22,34 +23,32 @@ namespace SmartHomeEnergySystem.ViewModels
             set
             {
                 selectedBattery = value;
-                DeleteCommand.RaiseCanExecuteChanged();
+                DeleteBatteryCommand.RaiseCanExecuteChanged();   //ovde stane program
             }
         }
-        
-
+  
         public BatteryViewModel()
         {
             loadBatteries();
-            DeleteCommand = new MyICommand(Delete, CanDelete);
+            DeleteBatteryCommand = new MyICommand(OnDeleteBattery, CanDeleteBattery);
         }
 
         public void loadBatteries()
         {
             Batteries = new ObservableCollection<BatteryModel>();
 
-          //  Batteries.Add(new BatteryModel("Tesla X", 7, 13.5));
-            //Batteries.Add(new BatteryModel("Tesla S", 9, 15.7));
+            Batteries.Add(new BatteryModel("Tesla X", 7, 13.5));
+            Batteries.Add(new BatteryModel("Tesla S", 9, 15.7));
         }
-
-        private void Delete()
-        {
-            BatteryModel delete = SelectedBattery;
-            Batteries.Remove(delete);
-        }
-
-        private bool CanDelete()
+        private bool CanDeleteBattery() 
         {
             return SelectedBattery != null;
+        }
+
+        private void OnDeleteBattery()
+        {
+            DeleteBatteryCommand deleteCommand = new DeleteBatteryCommand(SelectedBattery);
+            deleteCommand.Execute();
         }
     }
 }

@@ -28,28 +28,16 @@ namespace SmartHomeEnergySystem.Views
         {
             InitializeComponent();
             this.DataContext = new BatteryViewModel();
-            //listBoxBatteries.ItemsSource = BatteryViewModel.Batteries;
+            listBoxBatteries.ItemsSource = BatteryViewModel.Batteries;
         }
 
-
-        
-
-   
-        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
             if ((string.IsNullOrWhiteSpace(textBoxName.Text)) || (string.IsNullOrWhiteSpace(textBoxMaxPower.Text)) || string.IsNullOrWhiteSpace(textBoxCapacity.Text))
                 return;
 
-            BatteryViewModel.Batteries.Add(new BatteryModel(textBoxName.Text, Double.Parse(textBoxMaxPower.Text),Double.Parse(textBoxCapacity.Text)));
-        }     
-        
-
-        /*
-        private void DeleteClick(object sender, RoutedEventArgs e)
-        {
-            BatteryViewModel.Batteries.RemoveAt(BatteryViewModel.Batteries.Where<BatteryModel>();
+            BatteryViewModel.Batteries.Add(new BatteryModel(textBoxName.Text, Double.Parse(textBoxMaxPower.Text), Double.Parse(textBoxCapacity.Text)));
         }
-        */
 
     }
 }

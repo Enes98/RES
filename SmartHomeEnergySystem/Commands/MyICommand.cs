@@ -46,7 +46,7 @@ namespace SmartHomeEnergySystem.Command
 
         public event EventHandler CanExecuteChanged = delegate { };
 
-        void ICommand.Execute(object parameter)
+        void ICommand.Execute(object parameter) //null
         {
             if (_TargetExecuteMethod != null)
             {
@@ -74,8 +74,10 @@ namespace SmartHomeEnergySystem.Command
 
         public void RaiseCanExecuteChanged()
         {
-            CanExecuteChanged(this, EventArgs.Empty);
-        }        
+            CanExecuteChanged(this, EventArgs.Empty); //ne dodje dovde
+        }
+
+        #region ICommand Members
 
         bool ICommand.CanExecute(object parameter)
         {
@@ -103,5 +105,7 @@ namespace SmartHomeEnergySystem.Command
                 _TargetExecuteMethod((T)parameter);
             }
         }
+
+        #endregion
     }
 }

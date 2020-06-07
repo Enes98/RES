@@ -4,11 +4,54 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SmartHomeEnergySystem.Views"
+             xmlns:viewmodels="clr-namespace:SmartHomeEnergySystem.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Background>
         <SolidColorBrush Opacity="0.3" Color="LightBlue"/>
     </UserControl.Background>
+
+    <Grid>
+        <DataGrid
+                Opacity="0.7"
+                Name="listBoxBatteries"
+				ItemsSource="{Binding Source={x:Static viewmodels:BatteryViewModel.Batteries}}"
+				CanUserAddRows="True"
+				CanUserDeleteRows="False"
+				SelectionMode="Single"
+				CanUserResizeColumns="False"
+				IsReadOnly="True"
+				AutoGenerateColumns="False"
+				HeadersVisibility="Column"
+				SelectedItem="{Binding SelectedBattery, UpdateSourceTrigger=PropertyChanged}" Margin="10,40,348,31.6">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn FontSize="25" Header="Name" Width="*" Binding="{Binding Path=Name}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="25" Header="MaxPower" Width="*" Binding="{Binding Path=MaxPower}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="25" Header="Capacity" Width="*" Binding="{Binding Path=Capacity}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Command="{Binding DeleteBatteryCommand}" Content="Delete" HorizontalAlignment="Left" Height="26" Margin="480,392,0,0" VerticalAlignment="Top" Width="152"/>
+        <Button Content="Add" HorizontalAlignment="Left" Height="26" Margin="480,220,0,0" VerticalAlignment="Top" Width="152" Click="ButtonAdd_Click"/>
+        <Label Content="Name:" HorizontalAlignment="Left" Height="29" Margin="431,51,0,0" VerticalAlignment="Top" Width="99"/>
+        <TextBox Name="textBoxName" HorizontalAlignment="Left" Height="29" Margin="506,51,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179"/>
+        <Label  Content="Max power:" HorizontalAlignment="Left" Height="29" Margin="431,108,0,0" VerticalAlignment="Top" Width="99"/>
+        <TextBox Name="textBoxMaxPower" HorizontalAlignment="Left" Height="29" Margin="506,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179"/>
+        <Label Content="Capacity:" HorizontalAlignment="Left" Height="29" Margin="431,161,0,0" VerticalAlignment="Top" Width="99"/>
+        <TextBox Name="textBoxCapacity" HorizontalAlignment="Left" Height="29" Margin="506,161,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179"/>
+
+
+
+    </Grid>
+
+
+
+
+    <!--
     <Grid>
         <ListBox Name="listBoxBatteries" ItemsSource="{Binding Batteries}" SelectedItem="SelectedBattery" Margin="10,28,388,30">
             <ListBox.ItemTemplate>
@@ -17,9 +60,6 @@
                         <Label Width="80" BorderBrush="LightGray" BorderThickness="1" FontSize="16" Content="{Binding Name}"/>
                         <Label Width="80" BorderBrush="LightGray" BorderThickness="1" FontSize="16" Content="{Binding MaxPower}"/>
                         <Label Width="80" BorderBrush="LightGray" BorderThickness="1" FontSize="16" Content="{Binding Capacity}"/>
-                        <Button Width="80" Content="Delete" Click="DeleteClick">
-                            
-                        </Button>
                     </WrapPanel> 
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -33,4 +73,5 @@
         <TextBox Name="textBoxMaxPower" HorizontalAlignment="Left" Height="23" Margin="553,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="149"/>
         <TextBox Name="textBoxCapacity" HorizontalAlignment="Left" Height="23" Margin="553,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
     </Grid>
+    -->
 </UserControl>
