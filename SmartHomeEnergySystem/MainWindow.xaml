@@ -213,13 +213,22 @@
             </Button.Template>
         </Button>
         <Grid x:Name="gridContainer" HorizontalAlignment="Left" Height="474" Margin="10,185,0,0" VerticalAlignment="Top" Width="733">
-            <local1:HomeView x:Name="home"  Visibility="Collapsed" Margin="0,0,10,0"></local1:HomeView>
-            <local1:BatteryView x:Name="battery" Visibility="Collapsed"></local1:BatteryView>
-            <local1:ConsumerView x:Name="consumer" Visibility="Collapsed"></local1:ConsumerView>
-            <local1:eVehicleChargerView x:Name="ev" Visibility="Collapsed"></local1:eVehicleChargerView>
-            <local1:SolarPanelView x:Name="solar" Visibility="Collapsed"></local1:SolarPanelView>
-            <local1:UtilityView x:Name="utility" Visibility="Collapsed"></local1:UtilityView>
-            <local1:ChartView x:Name="chart" Visibility="Collapsed"></local1:ChartView>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="95*"/>
+                <ColumnDefinition Width="638*"/>
+            </Grid.ColumnDefinitions>
+            <local1:HomeView x:Name="home"  Visibility="Collapsed" Margin="0,0,10,0" Grid.ColumnSpan="2"></local1:HomeView>
+            <local1:BatteryView x:Name="battery" Visibility="Collapsed" Grid.ColumnSpan="2"></local1:BatteryView>
+            <local1:ConsumerView x:Name="consumer" Visibility="Collapsed" Grid.ColumnSpan="2"></local1:ConsumerView>
+            <local1:eVehicleChargerView x:Name="ev" Visibility="Collapsed" Grid.ColumnSpan="2"></local1:eVehicleChargerView>
+            <local1:SolarPanelView x:Name="solar" Visibility="Collapsed" Grid.ColumnSpan="2"></local1:SolarPanelView>
+            <local1:UtilityView x:Name="utility" Visibility="Collapsed" Grid.ColumnSpan="2"></local1:UtilityView>
+            <local1:ChartView x:Name="chart" Visibility="Collapsed" Grid.ColumnSpan="2"></local1:ChartView>
+            <TextBox FontSize="40" Opacity="0.3" Name="textBoxHours" HorizontalAlignment="Left" Height="59" Margin="29,-64,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="62"/>
+            <TextBox FontSize="40" Opacity="0.3" Name="textBoxMinutes" HorizontalAlignment="Left" Height="59" Margin="7.8,-64,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="64" Grid.Column="1"/>
+            <TextBox FontSize="40" Opacity="0.3" Name="textBoxSeconds" HorizontalAlignment="Left" Height="59" Margin="79.8,-64,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="65" Grid.Column="1"/>
         </Grid>
+        <Label FontSize="40" Content=":" HorizontalAlignment="Left" Height="64" Margin="97,116,0,0" VerticalAlignment="Top" Width="34"/>
+        <Label FontSize="40" Content=":" HorizontalAlignment="Left" Height="64" Margin="171,116,0,0" VerticalAlignment="Top" Width="34"/>
     </Grid>
 </Window>

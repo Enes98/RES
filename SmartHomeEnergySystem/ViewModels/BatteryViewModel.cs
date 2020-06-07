@@ -55,22 +55,19 @@ namespace SmartHomeEnergySystem.ViewModels
         public double StartCharging()
         {
             SHES.batteryState = BatteryEnum.CHARGING;
-
-
-            //  foreach(var battery in Batteries)
-
-            return CalculateCapacity();
+            return 0;
+           // return CalculateCapacity();
         }
 
         public double StartDischarging()
         {
             SHES.batteryState= BatteryEnum.DISCHARGING;
+            return 0;
+        }
 
-            foreach(BatteryModel bat in Batteries)
-            {
-                bat.State = Enums.BatteryEnum.DISCHARGING;
-            }
-
+        public double StartIdle()
+        {
+            SHES.batteryState = BatteryEnum.IDLE;
             return 0;
         }
 

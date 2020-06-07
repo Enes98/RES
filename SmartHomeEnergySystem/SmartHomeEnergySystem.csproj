@@ -61,6 +61,7 @@
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\MyICommand.cs" />
     <Compile Include="Enums\BatteryEnum.cs" />
+    <Compile Include="Models\ClockModel.cs" />
     <Compile Include="Models\TimeModel.cs" />
     <Compile Include="SHES.cs" />
     <Compile Include="ViewModels\BatteryViewModel.cs" />

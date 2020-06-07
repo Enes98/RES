@@ -1,4 +1,5 @@
 ﻿using SmartHomeEnergySystem.Enums;
+using SmartHomeEnergySystem.Models;
 using SmartHomeEnergySystem.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -35,17 +36,30 @@ namespace SmartHomeEnergySystem
 
         private void BatteryManagement()
         {
-            int b = 5;
             new Thread(() =>
             {
-
-                if(b == 5)
+                while(true)
                 {
-                    battery.StartDischarging();
+
+                    if ((ClockModel.Time.Hour >= 3) && (ClockModel.Time.Hour <= 6))
+                    {
+                        battery.StartCharging();
+                    }
+                    else if ((ClockModel.Time.Hour >= 14) && (ClockModel.Time.Hour <= 17))
+                    {
+                        battery.StartDischarging();
+                    }
+                    else
+                    {
+                        battery.StartIdle();
+                    }
+                    BatteryViewModel.Refresh();
                 }
+               
             }).Start();
 
 
-        }   
+        }
+
     }
 }
