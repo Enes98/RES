@@ -54,6 +54,13 @@ namespace SmartHomeEnergySystem.Models
             CurrentPower = cp;
         }
 
+        public SolarPanelModel(string n, double mp)
+        {
+            Name = n;
+            MaxPower = mp;
+            CurrentPower = 0;
+        }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)

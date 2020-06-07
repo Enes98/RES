@@ -4,12 +4,48 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SmartHomeEnergySystem.Views"
+              xmlns:viewmodels="clr-namespace:SmartHomeEnergySystem.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Background>
         <SolidColorBrush Opacity="0.3" Color="LightBlue"/>
     </UserControl.Background>
+
     <Grid>
-        <Label Content="SOLAR views" Margin="0,0,491,363"></Label>
+        <DataGrid
+                Opacity="0.7"
+                x:Name="listBoxPanels"
+				ItemsSource="{Binding Source={x:Static viewmodels:SolarPanelViewModel.solarPanels}}"
+				CanUserAddRows="True"
+				CanUserDeleteRows="False"
+				SelectionMode="Single"
+				CanUserResizeColumns="False"
+				IsReadOnly="True"
+				AutoGenerateColumns="False"
+				HeadersVisibility="Column"
+				SelectedItem="{Binding SelectedPanel, UpdateSourceTrigger=PropertyChanged}" Margin="10,40,348,31.6">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn FontSize="25" Header="Name" Width="*" Binding="{Binding Path=Name}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="25" Header="Max Power" Width="*" Binding="{Binding Path=MaxPower}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="25" Header="Current Power" Width="*" Binding="{Binding Path=CurrentPower}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Command="{Binding DeleteSolarPanelCommand}" Content="Delete" HorizontalAlignment="Left" Height="26" Margin="480,392,0,0" VerticalAlignment="Top" Width="152"/>
+        <Button Content="Add" HorizontalAlignment="Left" Height="26" Margin="480,220,0,0" VerticalAlignment="Top" Width="152" Click="ButtonAddPanel_Click"/>
+        <Label Content="Name:" HorizontalAlignment="Left" Height="29" Margin="431,51,0,0" VerticalAlignment="Top" Width="99"/>
+        <TextBox Name="textBoxName" HorizontalAlignment="Left" Height="29" Margin="506,51,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179"/>
+        <Label  Content="Max power:" HorizontalAlignment="Left" Height="29" Margin="431,108,0,0" VerticalAlignment="Top" Width="99"/>
+        <TextBox Name="textBoxMaxPower" HorizontalAlignment="Left" Height="29" Margin="506,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179"/>
+
+
+
     </Grid>
+
+
+
 </UserControl>

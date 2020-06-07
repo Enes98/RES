@@ -1,4 +1,5 @@
-﻿using SmartHomeEnergySystem.ViewModels;
+﻿using SmartHomeEnergySystem.Models;
+using SmartHomeEnergySystem.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,8 +26,22 @@ namespace SmartHomeEnergySystem.Views
         {
             InitializeComponent();
             this.DataContext = new SolarPanelViewModel();
-            //listBoxSolarPanels.ItemSource = SolarPanelViewModel.solarPanels;
+            listBoxPanels.ItemsSource = SolarPanelViewModel.solarPanels;
+            //listBoxPanels.ItemSource = SolarPanelViewModel.solarPanels;
             //treba napraviti izgled ----> Djo kreni
         }
+
+        //ButtonAddPanel_Click
+
+        private void ButtonAddPanel_Click(object sender, RoutedEventArgs e)
+        {
+            if ((string.IsNullOrEmpty(textBoxName.Text)) || (string.IsNullOrEmpty(textBoxMaxPower.Text)))
+                return;
+
+            SolarPanelViewModel.solarPanels.Add(new SolarPanelModel(textBoxName.Text, Double.Parse(textBoxMaxPower.Text)));
+        }
     }
+
+
 }
+

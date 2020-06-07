@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\DeleteBatteryCommand.cs" />
     <Compile Include="Commands\DeleteConsumerCommand.cs" />
+    <Compile Include="Commands\DeleteSolarPanelCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\MyICommand.cs" />
     <Compile Include="Enums\BatteryEnum.cs" />
