@@ -28,8 +28,6 @@ namespace SmartHomeEnergySystem.ViewModels
             }
         }
 
-        public BatteryEnum BatteyEnum { get; private set; }
-
         public BatteryViewModel()
         {
             loadBatteries();
@@ -67,7 +65,13 @@ namespace SmartHomeEnergySystem.ViewModels
         public double StartDischarging()
         {
             SHES.batteryState= BatteryEnum.DISCHARGING;
-            return CalculateCapacity();
+
+            foreach(BatteryModel bat in Batteries)
+            {
+                bat.State = Enums.BatteryEnum.DISCHARGING;
+            }
+
+            return 0;
         }
 
 
@@ -83,6 +87,12 @@ namespace SmartHomeEnergySystem.ViewModels
         }
             
             
-
+        public static void Refresh()
+        {
+            foreach(BatteryModel bat in Batteries)
+            {
+                bat.State = SHES.batteryState;
+            }
+        }
     }
 }

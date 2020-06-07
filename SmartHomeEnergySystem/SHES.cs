@@ -15,11 +15,11 @@ namespace SmartHomeEnergySystem
         public static BatteryEnum batteryState = BatteryEnum.IDLE;
         public static double solarPanelsPower = 0;
 
-        private BatteryViewModel battery;
-        private UtilityViewModel utility;
-        private SolarPanelViewModel solar;
-        private ConsumerViewModel consumer;
-        private eVehicleChargerViewModel vehicle;
+        public BatteryViewModel battery;
+        public UtilityViewModel utility;
+        public SolarPanelViewModel solar;
+        public ConsumerViewModel consumer;
+        public eVehicleChargerViewModel vehicle;
         
 
         public SHES(BatteryViewModel bt, UtilityViewModel ut, SolarPanelViewModel sp, ConsumerViewModel cs, eVehicleChargerViewModel ev)
@@ -39,21 +39,10 @@ namespace SmartHomeEnergySystem
             new Thread(() =>
             {
 
-                while(true)
+                if(b == 5)
                 {
-                    if (b == 5 || b == 6)
-                    {
-
-                        foreach (var bat in BatteryViewModel.Batteries)
-                        {
-                            bat.State = BatteryEnum.DISCHARGING;
-
-                        }
-                    }
-
+                    battery.StartDischarging();
                 }
-
-
             }).Start();
 
 

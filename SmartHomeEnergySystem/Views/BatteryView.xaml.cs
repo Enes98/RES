@@ -37,6 +37,7 @@ namespace SmartHomeEnergySystem.Views
                 return;
 
             BatteryViewModel.Batteries.Add(new BatteryModel(textBoxName.Text, Double.Parse(textBoxMaxPower.Text), Double.Parse(textBoxCapacity.Text)));
+            BatteryViewModel.Refresh();
         }
 
         

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartHomeEnergySystem.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,10 +21,17 @@ namespace SmartHomeEnergySystem
     /// </summary>
     public partial class MainWindow : Window
     {
+        public BatteryViewModel bt = new BatteryViewModel();
+        public UtilityViewModel ut = new UtilityViewModel();
+        public SolarPanelViewModel s = new SolarPanelViewModel();
+        public ConsumerViewModel c = new ConsumerViewModel();
+        public eVehicleChargerViewModel vehicle = new eVehicleChargerViewModel();
+
         public MainWindow()
         {
             InitializeComponent();
             DataContext = this;
+            SHES shes = new SHES(bt, ut, s, c, vehicle);
         }
 
         #region ActiveUserControl
