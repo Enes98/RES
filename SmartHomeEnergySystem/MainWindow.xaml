@@ -230,5 +230,6 @@
         </Grid>
         <Label FontSize="40" Content=":" HorizontalAlignment="Left" Height="64" Margin="97,116,0,0" VerticalAlignment="Top" Width="34"/>
         <Label FontSize="40" Content=":" HorizontalAlignment="Left" Height="64" Margin="171,116,0,0" VerticalAlignment="Top" Width="34"/>
+        <Label Opacity="0.6" FontSize="15" Content="AM" HorizontalAlignment="Left" Height="60" Margin="245,164,0,0" VerticalAlignment="Top" Width="49"/>
     </Grid>
 </Window>
