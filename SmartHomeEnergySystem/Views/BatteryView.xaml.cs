@@ -36,8 +36,11 @@ namespace SmartHomeEnergySystem.Views
             if ((string.IsNullOrWhiteSpace(textBoxName.Text)) || (string.IsNullOrWhiteSpace(textBoxMaxPower.Text)) || string.IsNullOrWhiteSpace(textBoxCapacity.Text))
                 return;
 
-            BatteryViewModel.Batteries.Add(new BatteryModel(textBoxName.Text, Double.Parse(textBoxMaxPower.Text), Double.Parse(textBoxCapacity.Text)));
-            BatteryViewModel.Refresh();
+            lock(BatteryViewModel.Batteries)
+            {
+                BatteryViewModel.Batteries.Add(new BatteryModel(textBoxName.Text, Double.Parse(textBoxMaxPower.Text), Double.Parse(textBoxCapacity.Text)));
+                BatteryViewModel.Refresh();
+            }
         }
 
         

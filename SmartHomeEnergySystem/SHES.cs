@@ -53,7 +53,10 @@ namespace SmartHomeEnergySystem
                     {
                         battery.StartIdle();
                     }
+                    lock(BatteryViewModel.Batteries)
+                    {
                     BatteryViewModel.Refresh();
+                    }
                 }
                
             }).Start();

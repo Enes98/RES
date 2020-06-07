@@ -23,7 +23,10 @@ namespace SmartHomeEnergySystem.Commands
 
         public void Execute()
         {
+            lock(BatteryViewModel.Batteries)
+            {
             BatteryViewModel.Batteries.Remove(batteryToDelete);   //program ne dodje dovde
+            }
         }
     }
 }
