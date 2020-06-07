@@ -4,11 +4,55 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SmartHomeEnergySystem.Views"
+              xmlns:viewmodels="clr-namespace:SmartHomeEnergySystem.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Background>
         <SolidColorBrush Opacity="0.3" Color="LightBlue"/>
     </UserControl.Background>
+
+
+
+
+    <Grid>
+        <DataGrid
+            Opacity="0.7"
+            x:Name="listBoxConsumers"
+            ItemsSource="{Binding Source={x:Static viewmodels:ConsumerViewModel.consumers}}"
+            CanUserAddRows="True"
+            CanUserDeleteRows="False"
+            SelectionMode="Single"
+            CanUserResizeColumns="False"
+            IsReadOnly="True"
+            AutoGenerateColumns="False"
+            HeadersVisibility="Column"
+            SelectedItem="{Binding SelectedConsumer, UpdateSourceTrigger=PropertyChanged}" Margin="10,40,348,31.6">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn FontSize="25" Header="Name" Width="*" Binding="{Binding Name}"/>
+                <DataGridTextColumn FontSize="25" Header="Consumption" Width="*" Binding="{Binding Consumption}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Command="{Binding DeleteConsumerCommand}" Content="Delete" HorizontalAlignment="Left" Height="36" Margin="495,357,0,0" VerticalAlignment="Top" Width="174"/>
+        <Label Content="Name:" HorizontalAlignment="Left" Margin="467,49,0,0" VerticalAlignment="Top" Width="68" Height="37"/>
+        <Label Content="Consumption:" HorizontalAlignment="Left" Margin="467,99,0,0" VerticalAlignment="Top" Width="102" Height="37"/>
+        <TextBox Name="textBoxName" HorizontalAlignment="Left" Height="37" Margin="593,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="175"/>
+        <TextBox Name="textBoxConsumption" HorizontalAlignment="Left" Height="37" Margin="593,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="175"/>
+        <Button Content="Add" HorizontalAlignment="Left" Height="40" Margin="495,285,0,0" VerticalAlignment="Top" Width="184" Click="BtnAdd_Click" />
+
+
+
+
+    </Grid>
+
+
+
+
+    <!--
     <Grid>
         <ListBox Name="listBoxConsumers" Margin="10,28,445,30">
             <ListBox.ItemTemplate>
@@ -29,4 +73,5 @@
         <RadioButton Content="Turn On" HorizontalAlignment="Left" Height="20" Margin="355,184,0,0" VerticalAlignment="Top" Width="92" Background="#FF000202"/>
         <RadioButton Content="Turn Off" HorizontalAlignment="Left" Height="29" Margin="355,217,0,0" VerticalAlignment="Top" Width="92" Background="Black"/>
     </Grid>
+    -->
 </UserControl>
