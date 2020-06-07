@@ -26,6 +26,7 @@ namespace SmartHomeEnergySystem
             DataContext = this;
         }
 
+        #region ActiveUserControl
         private void ButtonExit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -78,5 +79,6 @@ namespace SmartHomeEnergySystem
 
             control.Visibility = Visibility.Visible;
         }
+        #endregion
     }
 }

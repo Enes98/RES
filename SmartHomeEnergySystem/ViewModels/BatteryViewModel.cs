@@ -1,5 +1,6 @@
 ﻿using SmartHomeEnergySystem.Command;
 using SmartHomeEnergySystem.Commands;
+using SmartHomeEnergySystem.Enums;
 using SmartHomeEnergySystem.Models;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,9 @@ namespace SmartHomeEnergySystem.ViewModels
                 DeleteBatteryCommand.RaiseCanExecuteChanged();   //ovde stane program
             }
         }
-  
+
+        public BatteryEnum BatteyEnum { get; private set; }
+
         public BatteryViewModel()
         {
             loadBatteries();
@@ -50,5 +53,36 @@ namespace SmartHomeEnergySystem.ViewModels
             DeleteBatteryCommand deleteCommand = new DeleteBatteryCommand(SelectedBattery);
             deleteCommand.Execute();
         }
+
+        public double StartCharging()
+        {
+            SHES.batteryState = BatteryEnum.CHARGING;
+
+
+            //  foreach(var battery in Batteries)
+
+            return CalculateCapacity();
+        }
+
+        public double StartDischarging()
+        {
+            SHES.batteryState= BatteryEnum.DISCHARGING;
+            return CalculateCapacity();
+        }
+
+
+        private double CalculateCapacity()
+        {
+            double sum = 0;
+            foreach(var battery in Batteries)
+            {
+                sum += battery.Capacity;
+                
+            }
+            return sum;
+        }
+            
+            
+
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmartHomeEnergySystem.ViewModels
 {
-    class eVehicleChargerViewModel
+    public class eVehicleChargerViewModel
     {
     }
 }

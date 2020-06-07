@@ -61,7 +61,7 @@
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\MyICommand.cs" />
     <Compile Include="Enums\BatteryEnum.cs" />
-    <Compile Include="MainClass.cs" />
+    <Compile Include="SHES.cs" />
     <Compile Include="ViewModels\BatteryViewModel.cs" />
     <Compile Include="ViewModels\ConsumerViewModel.cs" />
     <Compile Include="ViewModels\eVehicleChargerViewModel.cs" />
@@ -161,7 +161,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\electric-car-1.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\1228_-_Solar_Panel-512.png" />
     <Resource Include="Images\backoground1.jpg" />

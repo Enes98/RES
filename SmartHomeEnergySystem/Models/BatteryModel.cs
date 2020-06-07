@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartHomeEnergySystem.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -9,10 +10,10 @@ namespace SmartHomeEnergySystem.Models
 {
     public class BatteryModel : INotifyPropertyChanged
     {
-        string name;
-        double maxPower;
-        double capacity;
-
+        private string name;
+        private double maxPower;
+        private double capacity;
+        private BatteryEnum state;
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
@@ -52,11 +53,22 @@ namespace SmartHomeEnergySystem.Models
             }
         }
         
+        public BatteryEnum State
+        {
+            get { return state; }
+            set
+            {
+                state = value;
+                OnPropertyChanged("State");
+            }
+        }
+
         public BatteryModel()
         {
             Name = "";
             MaxPower = 0;
             Capacity = 0;
+            State = BatteryEnum.IDLE;
         }
         
         public BatteryModel(string n, double mp, double c)
@@ -64,6 +76,7 @@ namespace SmartHomeEnergySystem.Models
             Name = n;
             MaxPower = mp;
             Capacity = c;
+            State = BatteryEnum.IDLE;
         }
          
     }

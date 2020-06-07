@@ -33,6 +33,7 @@
                 <DataGridTextColumn FontSize="25" Header="Name" Width="*" Binding="{Binding Path=Name}"></DataGridTextColumn>
                 <DataGridTextColumn FontSize="25" Header="MaxPower" Width="*" Binding="{Binding Path=MaxPower}"></DataGridTextColumn>
                 <DataGridTextColumn FontSize="25" Header="Capacity" Width="*" Binding="{Binding Path=Capacity}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="25" Header="State" Width="*" Binding="{Binding Path=State}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Button Command="{Binding DeleteBatteryCommand}" Content="Delete" HorizontalAlignment="Left" Height="26" Margin="480,392,0,0" VerticalAlignment="Top" Width="152"/>

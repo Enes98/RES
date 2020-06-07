@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             
              xmlns:local="clr-namespace:SmartHomeEnergySystem.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -10,6 +11,16 @@
         <SolidColorBrush Opacity="0.3" Color="LightBlue"/>
     </UserControl.Background>
     <Grid>
-        <Label Content="EV View" Margin="0,0,444,341"></Label>
+
+        <Grid Background="White" Opacity="0.7" HorizontalAlignment="Left" Height="123" Margin="36,33,0,0" VerticalAlignment="Top" Width="320">
+            <RadioButton Content="Charging" HorizontalAlignment="Left" Height="33" Margin="22,35,0,0" VerticalAlignment="Top" Width="150"/>
+            <RadioButton Content="Not charging" HorizontalAlignment="Left" Height="45" Margin="22,68,0,0" VerticalAlignment="Top" Width="222"/>
+        </Grid>
+        <Grid Background="White" Opacity="0.7" HorizontalAlignment="Left" Height="123" Margin="47,255,0,0" VerticalAlignment="Top" Width="321">
+            <Label FontSize="17" Content="Charge vehicle" HorizontalAlignment="Left" Height="41" Margin="23,0,0,0" VerticalAlignment="Top" Width="192"/>
+            <RadioButton Content="Don't charge" HorizontalAlignment="Left" Height="35" Margin="23,78,0,0" VerticalAlignment="Top" Width="132"/>
+            <RadioButton  Content="Charge" HorizontalAlignment="Left" Height="35" Margin="23,46,0,0" VerticalAlignment="Top" Width="132"/>
+        </Grid>
+
     </Grid>
 </UserControl>

@@ -9,6 +9,13 @@ namespace SmartHomeEnergySystem.ViewModels
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
+        private BatteryViewModel battery = new BatteryViewModel();
+        private UtilityViewModel utility = new UtilityViewModel();
+        private SolarPanelViewModel solar = new SolarPanelViewModel();
+        private ConsumerViewModel consumer = new ConsumerViewModel();
+        private eVehicleChargerViewModel vehicle = new eVehicleChargerViewModel();
+        private SHES shes;
+
         protected void NotifyPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)
@@ -18,5 +25,13 @@ namespace SmartHomeEnergySystem.ViewModels
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;
+
+
+        public MainWindowViewModel()
+        {
+           shes = new SHES(battery, utility, solar, consumer, vehicle);
+        }
+
+
     }
 }
