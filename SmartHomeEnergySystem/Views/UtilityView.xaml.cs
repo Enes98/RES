@@ -22,5 +22,9 @@ namespace SmartHomeEnergySystem.Views
     /// </summary>
     public partial class UtilityView : UserControl
     {
+        public UtilityView()
+        {
+            InitializeComponent();
+        }
     }
 }

@@ -28,7 +28,7 @@ namespace SmartHomeEnergySystem
         public UtilityViewModel ut = new UtilityViewModel();
         public SolarPanelViewModel s = new SolarPanelViewModel();
         public ConsumerViewModel c = new ConsumerViewModel();
-        public eVehicleChargerViewModel vehicle = new eVehicleChargerViewModel();
+        public eVehicleChargerViewModel v = new eVehicleChargerViewModel();
 
         public MainWindow()
         {
@@ -38,7 +38,7 @@ namespace SmartHomeEnergySystem
             t1.IsBackground = true;
             t1.Start();
 
-            SHES shes = new SHES(bt, ut, s, c, vehicle);
+            SHES shes = new SHES(bt, ut, s, c, v);
         }
 
 
@@ -103,9 +103,9 @@ namespace SmartHomeEnergySystem
             SetActiveUserControl(ev);
         }
 
-        private void UtilityBtn_Click(object sender, RoutedEventArgs e)
+        private void UtBtn_Click(object sender, RoutedEventArgs e)
         {
-            SetActiveUserControl(utility);
+            SetActiveUserControl(utl);
         }
 
         private void BatteryBtn_Click(object sender, RoutedEventArgs e)
@@ -133,7 +133,7 @@ namespace SmartHomeEnergySystem
             home.Visibility = Visibility.Collapsed;
             ev.Visibility = Visibility.Collapsed;
             solar.Visibility = Visibility.Collapsed;
-            utility.Visibility = Visibility.Collapsed;
+            utl.Visibility = Visibility.Collapsed;
             battery.Visibility = Visibility.Collapsed;
             consumer.Visibility = Visibility.Collapsed;
             chart.Visibility = Visibility.Collapsed;

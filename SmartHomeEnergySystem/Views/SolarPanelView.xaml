@@ -35,12 +35,14 @@
                 <DataGridTextColumn FontSize="25" Header="Current Power" Width="*" Binding="{Binding Path=CurrentPower}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Command="{Binding DeleteSolarPanelCommand}" Content="Delete" HorizontalAlignment="Left" Height="26" Margin="480,392,0,0" VerticalAlignment="Top" Width="152"/>
-        <Button Content="Add" HorizontalAlignment="Left" Height="26" Margin="480,220,0,0" VerticalAlignment="Top" Width="152" Click="ButtonAddPanel_Click"/>
+        <Button Command="{Binding DeleteSolarPanelCommand}" Content="Delete" HorizontalAlignment="Left" Height="26" Margin="516,392,0,0" VerticalAlignment="Top" Width="152"/>
+        <Button Content="Add" HorizontalAlignment="Left" Height="26" Margin="516,186,0,0" VerticalAlignment="Top" Width="152" Click="ButtonAddPanel_Click"/>
         <Label Content="Name:" HorizontalAlignment="Left" Height="29" Margin="431,51,0,0" VerticalAlignment="Top" Width="99"/>
         <TextBox Name="textBoxName" HorizontalAlignment="Left" Height="29" Margin="506,51,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179"/>
         <Label  Content="Max power:" HorizontalAlignment="Left" Height="29" Margin="431,108,0,0" VerticalAlignment="Top" Width="99"/>
         <TextBox Name="textBoxMaxPower" HorizontalAlignment="Left" Height="29" Margin="506,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179"/>
+        <Label Content="Sun Power:" HorizontalAlignment="Left" Height="33" Margin="431,286,0,0" VerticalAlignment="Top" Width="137"/>
+        <TextBox Name="textBoxSunPower" HorizontalAlignment="Left" Height="33" Margin="506,286,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179"/>
 
 
 

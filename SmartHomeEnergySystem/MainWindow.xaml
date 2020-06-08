@@ -188,7 +188,8 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="utilityBtn" Margin="981,227,52,406"  Background="#FF01E5E7" Cursor="Hand" Click="UtilityBtn_Click">
+
+        <Button x:Name="utilityBtn" Margin="981,227,52,406"  Background="#FF01E5E7" Cursor="Hand" Click="UtBtn_Click">
             <Image Source="Images\utilll.png" Height="58" Width="54" RenderTransformOrigin="0.5,0.5"/>
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -212,6 +213,8 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
+
+
         <Grid x:Name="gridContainer" HorizontalAlignment="Left" Height="474" Margin="10,185,0,0" VerticalAlignment="Top" Width="733">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="95*"/>
@@ -222,7 +225,7 @@
             <local1:ConsumerView x:Name="consumer" Visibility="Collapsed" Grid.ColumnSpan="2"></local1:ConsumerView>
             <local1:eVehicleChargerView x:Name="ev" Visibility="Collapsed" Grid.ColumnSpan="2"></local1:eVehicleChargerView>
             <local1:SolarPanelView x:Name="solar" Visibility="Collapsed" Grid.ColumnSpan="2"></local1:SolarPanelView>
-            <local1:UtilityView x:Name="utility" Visibility="Collapsed" Grid.ColumnSpan="2"></local1:UtilityView>
+            <local1:UtilityView x:Name="utl" Visibility="Collapsed" Grid.ColumnSpan="2"></local1:UtilityView>
             <local1:ChartView x:Name="chart" Visibility="Collapsed" Grid.ColumnSpan="2"></local1:ChartView>
             <TextBox FontSize="40" Opacity="0.3" Name="textBoxHours" HorizontalAlignment="Left" Height="59" Margin="29,-64,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="62"/>
             <TextBox FontSize="40" Opacity="0.3" Name="textBoxMinutes" HorizontalAlignment="Left" Height="59" Margin="7.8,-64,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="64" Grid.Column="1"/>
