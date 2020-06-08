@@ -23,27 +23,28 @@
 				IsReadOnly="True"
 				AutoGenerateColumns="False"
 				HeadersVisibility="Column"
-				SelectedItem="{Binding SelectedBattery, UpdateSourceTrigger=PropertyChanged}" Margin="10,40,348,31.6">
+				SelectedItem="{Binding SelectedBattery, UpdateSourceTrigger=PropertyChanged}" Margin="10,40,218,31.6">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
                 </Style>
             </DataGrid.ColumnHeaderStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn FontSize="25" Header="Name" Width="*" Binding="{Binding Path=Name}"></DataGridTextColumn>
-                <DataGridTextColumn FontSize="25" Header="MaxPower" Width="*" Binding="{Binding Path=MaxPower}"></DataGridTextColumn>
-                <DataGridTextColumn FontSize="25" Header="Capacity" Width="*" Binding="{Binding Path=Capacity}"></DataGridTextColumn>
-                <DataGridTextColumn FontSize="25" Header="State" Width="*" Binding="{Binding Path=State}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="15" Header="Name" Width="*" Binding="{Binding Path=Name}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="15" Header="MaxPower" Width="*" Binding="{Binding Path=MaxPower}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="15" Header="Capacity" Width="*" Binding="{Binding Path=Capacity}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="15" Header="State" Width="*" Binding="{Binding Path=State}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="15" Header="State" Width="*" Binding="{Binding Path=CurrentCapacity}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Command="{Binding DeleteBatteryCommand}" Content="Delete" HorizontalAlignment="Left" Height="26" Margin="480,392,0,0" VerticalAlignment="Top" Width="152"/>
-        <Button Content="Add" HorizontalAlignment="Left" Height="26" Margin="480,220,0,0" VerticalAlignment="Top" Width="152" Click="ButtonAdd_Click"/>
-        <Label Content="Name:" HorizontalAlignment="Left" Height="29" Margin="431,51,0,0" VerticalAlignment="Top" Width="99"/>
-        <TextBox Name="textBoxName" HorizontalAlignment="Left" Height="29" Margin="506,51,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179"/>
-        <Label  Content="Max power:" HorizontalAlignment="Left" Height="29" Margin="431,108,0,0" VerticalAlignment="Top" Width="99"/>
-        <TextBox Name="textBoxMaxPower" HorizontalAlignment="Left" Height="29" Margin="506,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179"/>
-        <Label Content="Capacity:" HorizontalAlignment="Left" Height="29" Margin="431,161,0,0" VerticalAlignment="Top" Width="99"/>
-        <TextBox Name="textBoxCapacity" HorizontalAlignment="Left" Height="29" Margin="506,161,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179"/>
+        <Button Command="{Binding DeleteBatteryCommand}" Content="Delete" HorizontalAlignment="Left" Height="26" Margin="587,392,0,0" VerticalAlignment="Top" Width="126"/>
+        <Button Content="Add" HorizontalAlignment="Left" Height="27" Margin="587,217,0,0" VerticalAlignment="Top" Width="126" Click="ButtonAdd_Click"/>
+        <Label FontWeight="Bold" Content="Name:" HorizontalAlignment="Left" Height="29" Margin="515,57,0,0" VerticalAlignment="Top" Width="99"/>
+        <TextBox Name="textBoxName" HorizontalAlignment="Left" Height="29" Margin="587,51,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="126"/>
+        <Label  FontWeight="Bold" Content="Max power:" HorizontalAlignment="Left" Height="29" Margin="515,114,0,0" VerticalAlignment="Top" Width="99"/>
+        <TextBox Name="textBoxMaxPower" HorizontalAlignment="Left" Height="29" Margin="587,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="126" RenderTransformOrigin="0.826,0.379"/>
+        <Label  FontWeight="Bold" Content="Capacity:" HorizontalAlignment="Left" Height="29" Margin="515,166,0,0" VerticalAlignment="Top" Width="99"/>
+        <TextBox Name="textBoxCapacity" HorizontalAlignment="Left" Height="29" Margin="587,161,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="126"/>
 
 
 

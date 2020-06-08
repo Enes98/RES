@@ -14,6 +14,17 @@ namespace SmartHomeEnergySystem.Models
         private double maxPower;
         private double capacity;
         private BatteryEnum state;
+        private double currentCapacity;
+
+        public double CurrentCapacity
+        {
+            get { return currentCapacity; }
+            set
+            {
+                currentCapacity = value;
+                OnPropertyChanged("CurrentCapacity");
+            }
+        }
 
         public string Name
         {
