@@ -17,6 +17,5 @@ namespace SmartHomeEnergySystem.Models
             Minute = 0;
             Second = 0;
         }
-
     }
 }

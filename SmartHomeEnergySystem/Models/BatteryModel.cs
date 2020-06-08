@@ -15,16 +15,6 @@ namespace SmartHomeEnergySystem.Models
         private double capacity;
         private BatteryEnum state;
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChangedEventArgs args = new PropertyChangedEventArgs(propertyName);
-                this.PropertyChanged(this, args);
-            }
-        }
-
         public string Name
         {
             get { return name; }
@@ -78,6 +68,15 @@ namespace SmartHomeEnergySystem.Models
             Capacity = c;
             State = BatteryEnum.IDLE;
         }
-         
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChangedEventArgs args = new PropertyChangedEventArgs(propertyName);
+                this.PropertyChanged(this, args);
+            }
+        }
     }
 }

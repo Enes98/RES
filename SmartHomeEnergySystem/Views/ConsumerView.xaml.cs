@@ -30,14 +30,6 @@ namespace SmartHomeEnergySystem.Views
             InitializeComponent();
             this.DataContext = new ConsumerViewModel();
             listBoxConsumers.ItemsSource = ConsumerViewModel.consumers;
-            /*SVE JE OVO BILO PRE
-            myList.Add(new ConsumerModel { Name = "Sladja", Consumption = 53.69 });
-            myList.Add(new ConsumerModel { Name = "Enes", Consumption = 69.77 });
-            myList.Add(new ConsumerModel { Name = "Sladja", Consumption = 53.69 });
-            myList.Add(new ConsumerModel { Name = "Enes", Consumption = 69.77 });           
-          
-            stPerson.ItemsSource = myList;
-            */
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)

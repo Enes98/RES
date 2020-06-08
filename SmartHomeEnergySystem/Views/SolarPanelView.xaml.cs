@@ -31,8 +31,6 @@ namespace SmartHomeEnergySystem.Views
             //treba napraviti izgled ----> Djo kreni
         }
 
-        //ButtonAddPanel_Click
-
         private void ButtonAddPanel_Click(object sender, RoutedEventArgs e)
         {
             if ((string.IsNullOrEmpty(textBoxName.Text)) || (string.IsNullOrEmpty(textBoxMaxPower.Text)))
@@ -41,7 +39,5 @@ namespace SmartHomeEnergySystem.Views
             SolarPanelViewModel.solarPanels.Add(new SolarPanelModel(textBoxName.Text, Double.Parse(textBoxMaxPower.Text)));
         }
     }
-
-
 }
 

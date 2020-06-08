@@ -36,16 +36,17 @@ namespace SmartHomeEnergySystem.ViewModels
 
         public void loadBatteries()
         {
-            Batteries = new ObservableCollection<BatteryModel>();
-
-            Batteries.Add(new BatteryModel("Tesla X", 7, 13.5));
-            Batteries.Add(new BatteryModel("Tesla S", 9, 15.7));
+            Batteries = new ObservableCollection<BatteryModel>
+            {
+                new BatteryModel("Tesla X", 7, 13.5),
+                new BatteryModel("Tesla S", 9, 15.7)
+            };
         }
+
         private bool CanDeleteBattery() 
         {
             return SelectedBattery != null;
         }
-
         private void OnDeleteBattery()
         {
             DeleteBatteryCommand deleteCommand = new DeleteBatteryCommand(SelectedBattery);
@@ -58,19 +59,16 @@ namespace SmartHomeEnergySystem.ViewModels
             return 0;
            // return CalculateCapacity();
         }
-
         public double StartDischarging()
         {
             SHES.batteryState= BatteryEnum.DISCHARGING;
             return 0;
         }
-
         public double StartIdle()
         {
             SHES.batteryState = BatteryEnum.IDLE;
             return 0;
         }
-
 
         private double CalculateCapacity()
         {
@@ -82,7 +80,6 @@ namespace SmartHomeEnergySystem.ViewModels
             }
             return sum;
         }
-            
             
         public static void Refresh()
         {

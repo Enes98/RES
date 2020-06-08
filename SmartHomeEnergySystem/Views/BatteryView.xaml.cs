@@ -22,8 +22,6 @@ namespace SmartHomeEnergySystem.Views
     /// </summary>
     public partial class BatteryView : UserControl
     {
-
-
         public BatteryView()
         {
             InitializeComponent();
@@ -42,8 +40,5 @@ namespace SmartHomeEnergySystem.Views
                 BatteryViewModel.Refresh();
             }
         }
-
-        
-
     }
 }

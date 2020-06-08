@@ -26,12 +26,9 @@ namespace SmartHomeEnergySystem.ViewModels
         }
         public event PropertyChangedEventHandler PropertyChanged;
 
-
         public MainWindowViewModel()
         {
            shes = new SHES(battery, utility, solar, consumer, vehicle);
         }
-
-
     }
 }

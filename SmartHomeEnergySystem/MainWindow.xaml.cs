@@ -39,7 +39,6 @@ namespace SmartHomeEnergySystem
             t1.Start();
 
             SHES shes = new SHES(bt, ut, s, c, vehicle);
-
         }
 
 
@@ -83,15 +82,11 @@ namespace SmartHomeEnergySystem
                         textBoxSeconds.Dispatcher.Invoke(() => { textBoxSeconds.Text = $"{ClockModel.Time.Second}"; });
                         Thread.Sleep(1000);
                     }
-                    catch
-                    {
-
-                    }
+                    catch{ }
                 }
             }
 
         }
-
         #region ActiveUserControl
         private void ButtonExit_Click(object sender, RoutedEventArgs e)
         {

@@ -14,6 +14,7 @@ namespace SmartHomeEnergySystem.ViewModels
     {
         public static ObservableCollection<SolarPanelModel> solarPanels { get; set; }
         private SolarPanelModel selectedPanel;
+
         public static MyICommand DeleteSolarPanelCommand { get; set; }
 
         public SolarPanelModel SelectedPanel
@@ -34,17 +35,17 @@ namespace SmartHomeEnergySystem.ViewModels
 
         public void loadSolarPanels()
         {
-            solarPanels = new ObservableCollection<SolarPanelModel>();
-
-            solarPanels.Add(new SolarPanelModel("Solar panel 1", 15, 7));
-            solarPanels.Add(new SolarPanelModel("Solar panel 2", 15, 7.2));
+            solarPanels = new ObservableCollection<SolarPanelModel>
+            {
+                new SolarPanelModel("Solar panel 1", 15, 7),
+                new SolarPanelModel("Solar panel 2", 15, 7.2)
+            };
         }
 
         private bool CanDeletePanel()
         {
             return SelectedPanel != null;
         }
-
         private void OnDeletePanel()
         {
             DeleteSolarPanelCommand deleteCommandP = new DeleteSolarPanelCommand(SelectedPanel);

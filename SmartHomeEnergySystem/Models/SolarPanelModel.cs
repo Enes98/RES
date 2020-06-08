@@ -61,7 +61,6 @@ namespace SmartHomeEnergySystem.Models
             CurrentPower = 0;
         }
 
-
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
         {
