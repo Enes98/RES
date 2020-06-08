@@ -15,6 +15,7 @@ namespace SmartHomeEnergySystem
         //public static bool bateryCharging = false;
         public static BatteryEnum batteryState = BatteryEnum.IDLE;
         public static double solarPanelsPower = 0;
+        public static double sunPower = SolarPanelViewModel.solarPanels[0].CurrentPower;
 
         public BatteryViewModel battery;
         public UtilityViewModel utility;
@@ -33,14 +34,12 @@ namespace SmartHomeEnergySystem
             BatteryManagement();
         }
 
-
         private void BatteryManagement()
         {
             new Thread(() =>
             {
                 while(true)
                 {
-
                     if ((ClockModel.Time.Hour >= 3) && (ClockModel.Time.Hour <= 6))
                     {
                         battery.StartCharging();
@@ -58,11 +57,7 @@ namespace SmartHomeEnergySystem
                     BatteryViewModel.Refresh();
                     }
                 }
-               
             }).Start();
-
-
         }
-
     }
 }

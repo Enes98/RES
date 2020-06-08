@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,8 +28,6 @@ namespace SmartHomeEnergySystem.Views
             InitializeComponent();
             this.DataContext = new SolarPanelViewModel();
             listBoxPanels.ItemsSource = SolarPanelViewModel.solarPanels;
-            //listBoxPanels.ItemSource = SolarPanelViewModel.solarPanels;
-            //treba napraviti izgled ----> Djo kreni
         }
 
         private void ButtonAddPanel_Click(object sender, RoutedEventArgs e)
@@ -37,6 +36,24 @@ namespace SmartHomeEnergySystem.Views
                 return;
 
             SolarPanelViewModel.solarPanels.Add(new SolarPanelModel(textBoxName.Text, Double.Parse(textBoxMaxPower.Text)));
+        }
+
+        private void BtnApply_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBoxSunPower.Text))
+                SHES.sunPower = 0;
+            SHES.sunPower = double.Parse(textBoxSunPower.Text);
+            new Thread(() =>
+            {
+                while(true)
+                {
+                    try
+                    {
+                        SolarPanelViewModel.Refresh();
+                    }
+                    catch { }
+                }
+            }).Start();
         }
     }
 }

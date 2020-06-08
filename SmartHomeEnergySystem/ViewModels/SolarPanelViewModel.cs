@@ -51,5 +51,19 @@ namespace SmartHomeEnergySystem.ViewModels
             DeleteSolarPanelCommand deleteCommandP = new DeleteSolarPanelCommand(SelectedPanel);
             deleteCommandP.Execute();
         }
+
+        public static void Refresh()
+        {
+            if ((ClockModel.Time.Hour >= 20) && (ClockModel.Time.Hour <= 6))
+                SHES.sunPower = 0;
+
+            foreach (SolarPanelModel spm in solarPanels)
+            {
+                if (SHES.sunPower >= spm.MaxPower)
+                    spm.CurrentPower = spm.MaxPower;
+                else
+                    spm.CurrentPower = SHES.sunPower;
+            }
+        }
     }
 }
