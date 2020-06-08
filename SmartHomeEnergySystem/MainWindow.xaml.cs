@@ -76,11 +76,17 @@ namespace SmartHomeEnergySystem
                             ClockModel.Time.Hour += hour;
                         }
                     }
+                    try
+                    {
+                        textBoxHours.Dispatcher.Invoke(() => { textBoxHours.Text = $"{ClockModel.Time.Hour}"; });
+                        textBoxMinutes.Dispatcher.Invoke(() => { textBoxMinutes.Text = $"{ClockModel.Time.Minute}"; });
+                        textBoxSeconds.Dispatcher.Invoke(() => { textBoxSeconds.Text = $"{ClockModel.Time.Second}"; });
+                        Thread.Sleep(1000);
+                    }
+                    catch
+                    {
 
-                    textBoxHours.Dispatcher.Invoke(() => { textBoxHours.Text = $"{ClockModel.Time.Hour}"; });
-                    textBoxMinutes.Dispatcher.Invoke(() => { textBoxMinutes.Text = $"{ClockModel.Time.Minute}"; });
-                    textBoxSeconds.Dispatcher.Invoke(() => { textBoxSeconds.Text = $"{ClockModel.Time.Second}"; });
-                    Thread.Sleep(1000);
+                    }
                 }
             }
 
