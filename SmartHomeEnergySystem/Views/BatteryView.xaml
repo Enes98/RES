@@ -31,10 +31,20 @@
             </DataGrid.ColumnHeaderStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn FontSize="15" Header="Name" Width="*" Binding="{Binding Path=Name}"></DataGridTextColumn>
-                <DataGridTextColumn FontSize="15" Header="MaxPower" Width="*" Binding="{Binding Path=MaxPower}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="15" Header="Max power" Width="*" Binding="{Binding Path=MaxPower}"></DataGridTextColumn>
                 <DataGridTextColumn FontSize="15" Header="Capacity" Width="*" Binding="{Binding Path=Capacity}"></DataGridTextColumn>
                 <DataGridTextColumn FontSize="15" Header="State" Width="*" Binding="{Binding Path=State}"></DataGridTextColumn>
-                <DataGridTextColumn FontSize="15" Header="State" Width="*" Binding="{Binding Path=CurrentCapacity}"></DataGridTextColumn>
+                <DataGridTemplateColumn Header="Remaining capacity">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox FontSize="15" Text="{Binding CurrentCapacity}"/>
+                                <TextBox FontSize="15" Text="{Binding CapacityMin}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <!--<DataGridTextColumn FontSize="15" Header="Current capacity" Width="*" Binding="{Binding Path=CurrentCapacity}"></DataGridTextColumn>-->
             </DataGrid.Columns>
         </DataGrid>
         <Button Command="{Binding DeleteBatteryCommand}" Content="Delete" HorizontalAlignment="Left" Height="26" Margin="587,392,0,0" VerticalAlignment="Top" Width="126"/>

@@ -15,6 +15,17 @@ namespace SmartHomeEnergySystem.Models
         private double capacity;
         private BatteryEnum state;
         private double currentCapacity;
+        private double capacityMin;
+
+        public double CapacityMin
+        {
+            get { return capacityMin; }
+            set
+            {
+                capacityMin = value;
+                OnPropertyChanged("CapacityMin");
+            }
+        }
 
         public double CurrentCapacity
         {
@@ -25,7 +36,6 @@ namespace SmartHomeEnergySystem.Models
                 OnPropertyChanged("CurrentCapacity");
             }
         }
-
         public string Name
         {
             get { return name; }
@@ -69,14 +79,16 @@ namespace SmartHomeEnergySystem.Models
             Name = "";
             MaxPower = 0;
             Capacity = 0;
+            CurrentCapacity = 0;
             State = BatteryEnum.IDLE;
         }
         
-        public BatteryModel(string n, double mp, double c)
+        public BatteryModel(string n, double mp, double c, double cc)
         {
             Name = n;
             MaxPower = mp;
             Capacity = c;
+            CurrentCapacity = cc;
             State = BatteryEnum.IDLE;
         }
 

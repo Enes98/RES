@@ -36,7 +36,7 @@ namespace SmartHomeEnergySystem.Views
 
             lock(BatteryViewModel.Batteries)
             {
-                BatteryViewModel.Batteries.Add(new BatteryModel(textBoxName.Text, Double.Parse(textBoxMaxPower.Text), Double.Parse(textBoxCapacity.Text)));
+                BatteryViewModel.Batteries.Add(new BatteryModel(textBoxName.Text, Double.Parse(textBoxMaxPower.Text), Double.Parse(textBoxCapacity.Text), 0));
                 BatteryViewModel.Refresh();
             }
         }
