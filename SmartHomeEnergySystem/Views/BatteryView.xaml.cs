@@ -37,6 +37,22 @@ namespace SmartHomeEnergySystem.Views
             lock(BatteryViewModel.Batteries)
             {
                 BatteryViewModel.Batteries.Add(new BatteryModel(textBoxName.Text, Double.Parse(textBoxMaxPower.Text), Double.Parse(textBoxCapacity.Text), 0));
+
+                using (dbSHESEntities entity = new dbSHESEntities())
+                {
+                    BatteryTable bmt = new BatteryTable()
+                    {
+                        Name = textBoxName.Text,
+                        MaxPower = Double.Parse(textBoxMaxPower.Text),
+                        Capacity = Double.Parse(textBoxCapacity.Text),
+                        CurrentCapacity = 0,
+                        CapacityMin = 0,
+                        State = Enums.BatteryEnum.IDLE.ToString()
+                    };
+                    entity.BatteryTables.Add(bmt);
+                    entity.SaveChanges();
+                }
+
                 BatteryViewModel.Refresh();
             }
         }

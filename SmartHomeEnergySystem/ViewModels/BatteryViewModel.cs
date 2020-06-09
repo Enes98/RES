@@ -37,11 +37,19 @@ namespace SmartHomeEnergySystem.ViewModels
 
         public void loadBatteries()
         {
-            Batteries = new ObservableCollection<BatteryModel>
+            Batteries = new ObservableCollection<BatteryModel>();
+            using (dbSHESEntities entity = new dbSHESEntities())
             {
-                new BatteryModel("Tesla X", 7, 150, 0),
-                new BatteryModel("Tesla S", 9, 150, 0)
+                List<BatteryTable> bateries = entity.BatteryTables.ToList<BatteryTable>();
+                foreach (var bat in bateries)
+                {
+                    BatteryModel battery = new BatteryModel(bat.Name, (double)bat.MaxPower, (double)bat.Capacity, (double)bat.CurrentCapacity);
+                    battery.CapacityMin = (double)bat.CapacityMin;
+                    battery.State = (BatteryEnum)Enum.Parse(typeof(BatteryEnum), bat.State);
+                    Batteries.Add(battery);
+                }
             };
+
         }
 
         private bool CanDeleteBattery() 

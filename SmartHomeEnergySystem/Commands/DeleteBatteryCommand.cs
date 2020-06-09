@@ -26,6 +26,16 @@ namespace SmartHomeEnergySystem.Commands
             lock(BatteryViewModel.Batteries)
             {
             BatteryViewModel.Batteries.Remove(batteryToDelete);   //program ne dodje dovde
+               
+                using (dbSHESEntities entity = new dbSHESEntities())
+                {
+                    BatteryTable bmt = entity.BatteryTables.Where(x => x.Name == batteryToDelete.Name).SingleOrDefault();
+                    if (bmt != null)
+                    {
+                        entity.BatteryTables.Remove(bmt);
+                        entity.SaveChanges();
+                    }
+                };
             }
         }
     }
