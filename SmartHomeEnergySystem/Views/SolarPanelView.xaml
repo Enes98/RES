@@ -35,15 +35,15 @@
                 <DataGridTextColumn FontSize="25" Header="Current Power" Width="*" Binding="{Binding Path=CurrentPower}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Command="{Binding DeleteSolarPanelCommand}" Content="Delete" HorizontalAlignment="Left" Height="26" Margin="516,224,0,0" VerticalAlignment="Top" Width="152"/>
-        <Button Content="Add" HorizontalAlignment="Left" Height="26" Margin="516,167,0,0" VerticalAlignment="Top" Width="152" Click="ButtonAddPanel_Click"/>
-        <Label Content="Name:" HorizontalAlignment="Left" Height="29" Margin="431,51,0,0" VerticalAlignment="Top" Width="99"/>
-        <TextBox Name="textBoxName" HorizontalAlignment="Left" Height="29" Margin="506,51,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179"/>
-        <Label  Content="Max power:" HorizontalAlignment="Left" Height="29" Margin="431,108,0,0" VerticalAlignment="Top" Width="99"/>
-        <TextBox Name="textBoxMaxPower" HorizontalAlignment="Left" Height="29" Margin="506,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179"/>
-        <Label Content="Sun Power:" HorizontalAlignment="Left" Height="33" Margin="431,400,0,0" VerticalAlignment="Top" Width="137"/>
-        <TextBox Name="textBoxSunPower" HorizontalAlignment="Left" Height="33" Margin="522,400,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140"/>
-        <Button Content="Apply" Click="BtnApply_Click" HorizontalAlignment="Left" Margin="667,413,0,0" VerticalAlignment="Top" Width="76"/>
+        <Button Command="{Binding DeleteSolarPanelCommand}" Content="Delete" HorizontalAlignment="Left" Height="26" Margin="500,216,0,0" VerticalAlignment="Top" Width="152"/>
+        <Button Content="Add" HorizontalAlignment="Left" Height="26" Margin="500,167,0,0" VerticalAlignment="Top" Width="152" Click="ButtonAddPanel_Click"/>
+        <Label FontWeight="Medium" Content="Name:" HorizontalAlignment="Left" Height="29" Margin="414,51,0,0" VerticalAlignment="Top" Width="99"/>
+        <TextBox Name="textBoxName" HorizontalAlignment="Left" Height="29" Margin="489,51,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179"/>
+        <Label FontWeight="Medium" Content="Max power:" HorizontalAlignment="Left" Height="29" Margin="414,108,0,0" VerticalAlignment="Top" Width="99"/>
+        <TextBox Name="textBoxMaxPower" HorizontalAlignment="Left" Height="29" Margin="489,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179"/>
+        <Label FontWeight="Medium" Content="Sun Power:" HorizontalAlignment="Left" Height="33" Margin="414,359,0,0" VerticalAlignment="Top" Width="137"/>
+        <TextBox Name="textBoxSunPower" HorizontalAlignment="Left" Height="33" Margin="489,354,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179"/>
+        <Button Content="Apply" Click="BtnApply_Click" HorizontalAlignment="Left" Margin="592,399,0,0" VerticalAlignment="Top" Width="76"/>
 
 
 

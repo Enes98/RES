@@ -35,10 +35,19 @@ namespace SmartHomeEnergySystem.ViewModels
 
         public void loadSolarPanels()
         {
-            solarPanels = new ObservableCollection<SolarPanelModel>
+            solarPanels = new ObservableCollection<SolarPanelModel>();
+
+            using (dbSHESEntities entity = new dbSHESEntities())
             {
-                new SolarPanelModel("Solar panel 1", 15, 7),
-                new SolarPanelModel("Solar panel 2", 15, 7.2)
+                List<SolarPanelTable> cons = entity.SolarPanelTables.ToList<SolarPanelTable>();
+                if(cons != null)
+                {
+                    foreach (var c in cons)
+                    {
+                        SolarPanelModel consumer = new SolarPanelModel(c.Name, (double)c.MaxPower, (double)c.CurrentPower);
+                        solarPanels.Add(consumer);
+                    }
+                }
             };
         }
 
