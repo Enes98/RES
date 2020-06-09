@@ -9,9 +9,42 @@ namespace SmartHomeEnergySystem.Models
 {
     public class eVehicleChargerModel : INotifyPropertyChanged
     {
-        string name;
-        double maxPower;
-        double capacity;
+        private string name;
+        private double maxPower;
+        private double maxCapacity;
+        private double capacity;
+        private Enums.VehicleEnumCharging charging;
+        private Enums.VehicleEnumConnect connected;
+
+        public double MaxCapacity
+        {
+            get { return maxCapacity; }
+            set
+            {
+                maxCapacity = value;
+                OnPropertyChanged("MaxCapacity");
+            }
+        }
+
+        public Enums.VehicleEnumCharging Charging
+        {
+            get { return charging; }
+            set
+            {
+                charging = value;
+                OnPropertyChanged("Charging");
+            }
+        }
+
+        public Enums.VehicleEnumConnect Connected
+        {
+            get { return connected; }
+            set
+            {
+                connected = value;
+                OnPropertyChanged("Connected");
+            }
+        }
 
         public string Name
         {
@@ -46,12 +79,19 @@ namespace SmartHomeEnergySystem.Models
             Name = "";
             MaxPower = 0;
             Capacity = 0;
+            MaxCapacity = 0;
+            Charging = Enums.VehicleEnumCharging.IDLE;
+            Connected = Enums.VehicleEnumConnect.DISCONNECTED;
+
         }
-        public eVehicleChargerModel(string n, double mp, double c)
+        public eVehicleChargerModel(string n, double mp, double c, double mc)
         {
             Name = n;
             MaxPower = mp;
             Capacity = c;
+            MaxCapacity = mc;
+            Charging = Enums.VehicleEnumCharging.IDLE;
+            Connected =Enums.VehicleEnumConnect.DISCONNECTED;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -24,6 +24,17 @@
           <Property Name="Consumption" Type="float" />
           <Property Name="State" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="eVehicleTable">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MaxPower" Type="float" />
+          <Property Name="MaxCapacity" Type="float" />
+          <Property Name="Capacity" Type="float" />
+          <Property Name="Charging" Type="varchar" MaxLength="50" />
+          <Property Name="Connected" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="SolarPanelTable">
           <Key>
             <PropertyRef Name="Name" />
@@ -35,6 +46,7 @@
         <EntityContainer Name="dbSHESModelStoreContainer">
           <EntitySet Name="BatteryTable" EntityType="Self.BatteryTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ConsumerTable" EntityType="Self.ConsumerTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="eVehicleTable" EntityType="Self.eVehicleTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SolarPanelTable" EntityType="Self.SolarPanelTable" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -56,6 +68,7 @@
           <EntitySet Name="BatteryTables" EntityType="Self.BatteryTable" />
           <EntitySet Name="ConsumerTables" EntityType="dbSHESModel.ConsumerTable" />
           <EntitySet Name="SolarPanelTables" EntityType="dbSHESModel.SolarPanelTable" />
+          <EntitySet Name="eVehicleTables" EntityType="dbSHESModel.eVehicleTable" />
         </EntityContainer>
         <EntityType Name="ConsumerTable">
           <Key>
@@ -72,6 +85,17 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="MaxPower" Type="Double" />
           <Property Name="CurrentPower" Type="Double" />
+        </EntityType>
+        <EntityType Name="eVehicleTable">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MaxPower" Type="Double" />
+          <Property Name="MaxCapacity" Type="Double" />
+          <Property Name="Capacity" Type="Double" />
+          <Property Name="Charging" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Connected" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -104,6 +128,18 @@
             <EntityTypeMapping TypeName="dbSHESModel.SolarPanelTable">
               <MappingFragment StoreEntitySet="SolarPanelTable">
                 <ScalarProperty Name="CurrentPower" ColumnName="CurrentPower" />
+                <ScalarProperty Name="MaxPower" ColumnName="MaxPower" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="eVehicleTables">
+            <EntityTypeMapping TypeName="dbSHESModel.eVehicleTable">
+              <MappingFragment StoreEntitySet="eVehicleTable">
+                <ScalarProperty Name="Connected" ColumnName="Connected" />
+                <ScalarProperty Name="Charging" ColumnName="Charging" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="MaxCapacity" ColumnName="MaxCapacity" />
                 <ScalarProperty Name="MaxPower" ColumnName="MaxPower" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>

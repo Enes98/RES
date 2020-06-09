@@ -5,22 +5,67 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              
              xmlns:local="clr-namespace:SmartHomeEnergySystem.Views"
+             xmlns:viewmodels="clr-namespace:SmartHomeEnergySystem.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Background>
         <SolidColorBrush Opacity="0.3" Color="LightBlue"/>
     </UserControl.Background>
     <Grid>
+        <Label FontSize="17" Content="  Set Current  Capacity:" HorizontalAlignment="Left" Height="46" Margin="33,57,0,0" VerticalAlignment="Top" Width="218" RenderTransformOrigin="-0.511,0.45"/>
+        <TextBox Name="textBoxCapacitet" HorizontalAlignment="Left" Height="39" Margin="238,46,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="212" RenderTransformOrigin="0.506,1.118"/>
+        <Button Content="Connect" HorizontalAlignment="Left" Height="40" Margin="33,116,0,0" VerticalAlignment="Top" Width="91"/>
+        <Button Content="Disconnect" HorizontalAlignment="Left" Height="42" Margin="33,156,0,0" VerticalAlignment="Top" Width="91"/>
+        <Button Content="Start Charging" HorizontalAlignment="Left" Height="40" Margin="143,116,0,0" VerticalAlignment="Top" Width="91"/>
+        <Button Content="Stop Charging" HorizontalAlignment="Left" Height="42" Margin="143,156,0,0" VerticalAlignment="Top" Width="91"/>
+        <!--
+        <Label BorderBrush="Black" BorderThickness="1" Background="White" Opacity="0.7" Content="Name" HorizontalAlignment="Left" Height="33" Margin="33,271,0,0" VerticalAlignment="Top" Width="110"/>
+        <Label BorderBrush="Black" BorderThickness="1" Background="White" Opacity="0.7" Content="Max Power" HorizontalAlignment="Left" Height="33" Margin="143,271,0,0" VerticalAlignment="Top" Width="110"/>
+        <Label BorderBrush="Black" BorderThickness="1" Background="White" Opacity="0.7" Content="Max Capacity" HorizontalAlignment="Left" Height="33" Margin="253,271,0,0" VerticalAlignment="Top" Width="110"/>
+        <Label BorderBrush="Black" BorderThickness="1" Background="White" Opacity="0.7" Content="Current Capacity" HorizontalAlignment="Left" Height="33" Margin="363,271,0,0" VerticalAlignment="Top" Width="110"/>
+        <Label BorderBrush="Black" BorderThickness="1" Background="White" Opacity="0.7" Content="Charging" HorizontalAlignment="Left" Height="33" Margin="473,271,0,0" VerticalAlignment="Top" Width="110"/>
+        <TextBox IsReadOnly="True" Text="{Binding Path=Name}" Name="vehicleName" BorderBrush="Black" BorderThickness="1" Opacity="0.7" HorizontalAlignment="Left" Height="56" Margin="33,304,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="110"/>
+        <TextBox IsReadOnly="True" Text="{Binding Path=MaxPower}" Name="vehicleMaxPower" BorderBrush="Black" BorderThickness="1" Opacity="0.7" HorizontalAlignment="Left" Height="56" Margin="143,304,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="110"/>
+        <TextBox IsReadOnly="True" Text="{Binding Path=MaxCapacity}" Name="vehicleMaxCapacity" BorderBrush="Black" BorderThickness="1" Opacity="0.7" HorizontalAlignment="Left" Height="56" Margin="253,304,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="110"/>
+        <TextBox IsReadOnly="True" Text="{Binding Path=Capacity}" Name="vehicleCurrentCapacity" BorderBrush="Black" BorderThickness="1" Opacity="0.7" HorizontalAlignment="Left" Height="56" Margin="363,304,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="110"/>
+        <TextBox IsReadOnly="True" Text="{Binding Path=Charging}" Name="vehicleCharging" BorderBrush="Black" BorderThickness="1" Opacity="0.7" HorizontalAlignment="Left" Height="56" Margin="473,304,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="110"/>
+        <Label BorderBrush="Black" BorderThickness="1" Background="White" Opacity="0.7" Content="Connected" HorizontalAlignment="Left" Height="33" Margin="583,271,0,0" VerticalAlignment="Top" Width="110"/>
+        <TextBox IsReadOnly="True" Text="{Binding Charging}" x:Name="vehicleCharging_Copy" BorderBrush="Black" BorderThickness="1" Opacity="0.7" HorizontalAlignment="Left" Height="56" Margin="583,304,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="110"/>
+        -->
+        <Button Click="BtnSend_Click"  Name="btnSend" Content="Send" HorizontalAlignment="Left" Height="33" Margin="317,95,0,0" VerticalAlignment="Top" Width="133"/>
 
-        <Grid Background="White" Opacity="0.7" HorizontalAlignment="Left" Height="123" Margin="36,33,0,0" VerticalAlignment="Top" Width="320">
-            <RadioButton Content="Charging" HorizontalAlignment="Left" Height="33" Margin="22,35,0,0" VerticalAlignment="Top" Width="150"/>
-            <RadioButton Content="Not charging" HorizontalAlignment="Left" Height="45" Margin="22,68,0,0" VerticalAlignment="Top" Width="222"/>
-        </Grid>
-        <Grid Background="White" Opacity="0.7" HorizontalAlignment="Left" Height="123" Margin="47,255,0,0" VerticalAlignment="Top" Width="321">
-            <Label FontSize="17" Content="Charge vehicle" HorizontalAlignment="Left" Height="41" Margin="23,0,0,0" VerticalAlignment="Top" Width="192"/>
-            <RadioButton Content="Don't charge" HorizontalAlignment="Left" Height="35" Margin="23,78,0,0" VerticalAlignment="Top" Width="132"/>
-            <RadioButton  Content="Charge" HorizontalAlignment="Left" Height="35" Margin="23,46,0,0" VerticalAlignment="Top" Width="132"/>
-        </Grid>
+
+
+        <DataGrid
+                Opacity="0.6"
+                Name="listBoxVehicles1"
+                ItemsSource="{Binding Source={x:Static viewmodels:eVehicleChargerViewModel.Vehicles}}"
+				CanUserAddRows="True"
+				CanUserDeleteRows="False"
+				SelectionMode="Single"
+				CanUserResizeColumns="False"
+				IsReadOnly="True"
+				AutoGenerateColumns="False"
+				HeadersVisibility="Column" Margin="19,312,23,55.6"
+				>
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn FontSize="20" Header="Name" Width="*" Binding="{Binding Path=Name}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="20" Header="Max power [kW]" Width="*" Binding="{Binding Path=MaxPower}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="20" Header="Max Capacity [kW]" Width="*" Binding="{Binding Path=MaxCapacity}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="20" Header="Capacity [kW]" Width="*" Binding="{Binding Path=Capacity}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="15" Header="Charging" Width="*" Binding="{Binding Path=Charging}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="15" Header="Connected" Width="*" Binding="{Binding Path=Connected}"></DataGridTextColumn>
+                
+                
+            </DataGrid.Columns>
+        </DataGrid>
+   
+
 
     </Grid>
 </UserControl>

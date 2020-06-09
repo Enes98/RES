@@ -1,7 +1,9 @@
-﻿using System;
+﻿using SmartHomeEnergySystem.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,6 +25,33 @@ namespace SmartHomeEnergySystem.Views
         public eVehicleChargerView()
         {
             InitializeComponent();
+            this.DataContext = new eVehicleChargerViewModel();
+            // listBoxVehicles.ItemsSource = eVehicleChargerViewModel.Vehicles;
+            listBoxVehicles1.ItemsSource = eVehicleChargerViewModel.Vehicles;
+        }
+
+        private void BtnSend_Click(object sender, RoutedEventArgs e)
+        {
+ 
+            if (!string.IsNullOrEmpty(textBoxCapacitet.Text))
+            {
+                // eVehicleChargerViewModel.Vehicles[0].Capacity = Double.Parse(textBoxCapacitet.Text);
+                double temp = Double.Parse(textBoxCapacitet.Text);
+
+                new Thread(() =>
+                {
+                    try
+                    {
+                        if (eVehicleChargerViewModel.Vehicles[0].MaxCapacity >= temp)
+                            eVehicleChargerViewModel.Vehicles[0].Capacity = temp;
+                        else
+                        {
+                            eVehicleChargerViewModel.Vehicles[0].Capacity = eVehicleChargerViewModel.Vehicles[0].MaxCapacity;
+                        }
+                    }
+                    catch { }
+                }).Start();
+            }
         }
     }
 }
