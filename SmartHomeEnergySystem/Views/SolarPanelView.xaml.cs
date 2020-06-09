@@ -36,6 +36,19 @@ namespace SmartHomeEnergySystem.Views
                 return;
 
             SolarPanelViewModel.solarPanels.Add(new SolarPanelModel(textBoxName.Text, Double.Parse(textBoxMaxPower.Text)));
+
+            using (dbSHESEntities entity = new dbSHESEntities())
+            {
+                SolarPanelTable spmt = new SolarPanelTable()
+                {
+                    Name = textBoxName.Text,
+                    MaxPower = Double.Parse(textBoxMaxPower.Text),
+                    CurrentPower = 0
+                };
+                entity.SolarPanelTables.Add(spmt);
+                entity.SaveChanges();
+            }
+
         }
 
         private void BtnApply_Click(object sender, RoutedEventArgs e)

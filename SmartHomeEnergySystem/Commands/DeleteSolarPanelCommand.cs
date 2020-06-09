@@ -20,6 +20,16 @@ namespace SmartHomeEnergySystem.Commands
         public void Execute()
         {
             SolarPanelViewModel.solarPanels.Remove(panelToDelete);
+            using (dbSHESEntities entity = new dbSHESEntities())
+            {
+
+                SolarPanelTable spmt = entity.SolarPanelTables.Where(x => x.Name == panelToDelete.Name).SingleOrDefault();
+                if (spmt != null)
+                {
+                    entity.SolarPanelTables.Remove(spmt);
+                    entity.SaveChanges();
+                }
+            };
         }
     }
 }

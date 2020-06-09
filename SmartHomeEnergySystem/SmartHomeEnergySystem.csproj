@@ -95,6 +95,9 @@
     <Compile Include="Models\ClockModel.cs" />
     <Compile Include="Models\TimeModel.cs" />
     <Compile Include="SHES.cs" />
+    <Compile Include="SolarPanelTable.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\BatteryViewModel.cs" />
     <Compile Include="ViewModels\ConsumerViewModel.cs" />
     <Compile Include="ViewModels\eVehicleChargerViewModel.cs" />
