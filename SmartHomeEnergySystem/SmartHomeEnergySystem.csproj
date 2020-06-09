@@ -72,7 +72,11 @@
     <Compile Include="Commands\DeleteSolarPanelCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\MyICommand.cs" />
+    <Compile Include="ConsumerTable.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
     <Compile Include="Enums\BatteryEnum.cs" />
+    <Compile Include="Enums\ConsumerEnum.cs" />
     <Compile Include="Model2.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

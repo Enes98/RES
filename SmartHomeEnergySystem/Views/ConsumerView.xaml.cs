@@ -38,6 +38,17 @@ namespace SmartHomeEnergySystem.Views
                 return;
 
             ConsumerViewModel.consumers.Add(new ConsumerModel(textBoxName.Text, Double.Parse(textBoxConsumption.Text)));
+            using (dbSHESEntities entity = new dbSHESEntities())
+            {
+                ConsumerTable cmt = new ConsumerTable()
+                {
+                    Name = textBoxName.Text,
+                    Consumption = Double.Parse(textBoxConsumption.Text),
+                    State = Enums.ConsumerEnum.OFF.ToString()
+                };
+                entity.ConsumerTables.Add(cmt);
+                entity.SaveChanges();
+            }
         }
     }
 }

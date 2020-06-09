@@ -1,5 +1,6 @@
 ﻿using SmartHomeEnergySystem.Command;
 using SmartHomeEnergySystem.Commands;
+using SmartHomeEnergySystem.Enums;
 using SmartHomeEnergySystem.Models;
 using System;
 using System.Collections.Generic;
@@ -36,9 +37,16 @@ namespace SmartHomeEnergySystem.ViewModels
         private void loadConsumers()
         {
             consumers = new ObservableCollection<ConsumerModel>();
-
-            consumers.Add(new ConsumerModel("TV", 20.22));
-            consumers.Add(new ConsumerModel("Air-conditioner", 100.6));
+            using (dbSHESEntities entity = new dbSHESEntities())
+            {
+                List<ConsumerTable> cons = entity.ConsumerTables.ToList<ConsumerTable>();
+                foreach (var c in cons)
+                {
+                    ConsumerModel consumer = new ConsumerModel(c.Name, (double)c.Consumption);
+                    consumer.State = (ConsumerEnum)Enum.Parse(typeof(ConsumerEnum), c.State);
+                    consumers.Add(consumer);
+                }
+            };
         }
 
         private bool CanDeleteConsumer()

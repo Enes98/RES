@@ -26,5 +26,6 @@ namespace SmartHomeEnergySystem
         }
     
         public virtual DbSet<BatteryTable> BatteryTables { get; set; }
+        public virtual DbSet<ConsumerTable> ConsumerTables { get; set; }
     }
 }

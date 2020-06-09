@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartHomeEnergySystem.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -9,8 +10,19 @@ namespace SmartHomeEnergySystem.Models
 {
     public class ConsumerModel : INotifyPropertyChanged
     {
-        string name;
-        double consumption;
+        private string name;
+        private  double consumption;
+        private ConsumerEnum state;
+
+        public ConsumerEnum State
+        {
+            get { return state; }
+            set
+            {
+                state = value;
+                OnPropertyChanged("State");
+            }
+        }
 
         public string Name
         {
@@ -35,11 +47,13 @@ namespace SmartHomeEnergySystem.Models
         {
             Name = "";
             Consumption = 0;
+            State = ConsumerEnum.OFF;
         }
         public ConsumerModel(string n, double c)
         {
             Name = n;
             Consumption = c;
+            State = ConsumerEnum.OFF;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

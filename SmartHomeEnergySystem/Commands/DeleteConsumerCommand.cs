@@ -19,7 +19,16 @@ namespace SmartHomeEnergySystem.Commands
 
         public void Execute()
         {
-            ConsumerViewModel.consumers.Remove(consumerToDelete);   
+            ConsumerViewModel.consumers.Remove(consumerToDelete);
+            using (dbSHESEntities entity = new dbSHESEntities())
+            {
+                ConsumerTable cmt = entity.ConsumerTables.Where(x => x.Name == consumerToDelete.Name).SingleOrDefault();
+                if (cmt != null)
+                {
+                    entity.ConsumerTables.Remove(cmt);
+                    entity.SaveChanges();
+                }
+            };
         }
     }
 }
