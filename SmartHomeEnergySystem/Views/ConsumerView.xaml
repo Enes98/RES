@@ -34,7 +34,7 @@
             </DataGrid.ColumnHeaderStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn FontSize="25" Header="Name" Width="*" Binding="{Binding Name}"/>
-                <DataGridTextColumn FontSize="25" Header="Consumption" Width="*" Binding="{Binding Consumption}"/>
+                <DataGridTextColumn FontSize="25" Header="Consumption [kW]" Width="*" Binding="{Binding Consumption}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button Command="{Binding DeleteConsumerCommand}" Content="Delete" HorizontalAlignment="Left" Height="31" Margin="494,387,0,0" VerticalAlignment="Top" Width="183"/>

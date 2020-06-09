@@ -54,17 +54,6 @@ namespace SmartHomeEnergySystem.Views
         private void BtnApply_Click(object sender, RoutedEventArgs e)
         {
 
-            /*
-               if ((string.IsNullOrEmpty(textBoxSunPower.Text)) && (ClockModel.Time.Hour >= 20 && ClockModel.Time.Hour <= 7))
-                SHES.sunPower = 0;
-            else if ((string.IsNullOrEmpty(textBoxSunPower.Text)) && (ClockModel.Time.Hour > 7 && ClockModel.Time.Hour <= 12))
-                SHES.sunPower = 50;
-            else if ((string.IsNullOrEmpty(textBoxSunPower.Text)) && (ClockModel.Time.Hour > 12 && ClockModel.Time.Hour <= 17))
-                SHES.sunPower = 100;
-            else if ((string.IsNullOrEmpty(textBoxSunPower.Text)) && (ClockModel.Time.Hour > 17 && ClockModel.Time.Hour < 20))
-                SHES.sunPower = 50;
-             */
-             /*
             if (string.IsNullOrEmpty(textBoxSunPower.Text))
                 SHES.sunPower = 0;
             SHES.sunPower = double.Parse(textBoxSunPower.Text);
@@ -79,7 +68,7 @@ namespace SmartHomeEnergySystem.Views
                     catch { }
                 }
             }).Start();
-            */
+            
         }
     }
 }

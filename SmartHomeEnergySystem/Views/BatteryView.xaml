@@ -32,10 +32,10 @@
             </DataGrid.ColumnHeaderStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn FontSize="20" Header="Name" Width="*" Binding="{Binding Path=Name}"></DataGridTextColumn>
-                <DataGridTextColumn FontSize="20" Header="Max power" Width="*" Binding="{Binding Path=MaxPower}"></DataGridTextColumn>
-                <DataGridTextColumn FontSize="20" Header="Capacity" Width="*" Binding="{Binding Path=Capacity}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="20" Header="Max power [kW]" Width="*" Binding="{Binding Path=MaxPower}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="20" Header="Capacity [kW]" Width="*" Binding="{Binding Path=Capacity}"></DataGridTextColumn>
                 <DataGridTextColumn FontSize="15" Header="State" Width="*" Binding="{Binding Path=State}"></DataGridTextColumn>
-                <DataGridTemplateColumn Header="Remaining capacity">
+                <DataGridTemplateColumn Header="Remaining [h/min]">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">

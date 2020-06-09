@@ -31,8 +31,8 @@
             </DataGrid.ColumnHeaderStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn FontSize="25" Header="Name" Width="*" Binding="{Binding Path=Name}"></DataGridTextColumn>
-                <DataGridTextColumn FontSize="25" Header="Max Power" Width="*" Binding="{Binding Path=MaxPower}"></DataGridTextColumn>
-                <DataGridTextColumn FontSize="25" Header="Current Power" Width="*" Binding="{Binding Path=CurrentPower}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="25" Header="Max Power [kW]" Width="*" Binding="{Binding Path=MaxPower}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="25" Header="Current Power [kW]" Width="*" Binding="{Binding Path=CurrentPower}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Button Command="{Binding DeleteSolarPanelCommand}" Content="Delete" HorizontalAlignment="Left" Height="26" Margin="500,216,0,0" VerticalAlignment="Top" Width="152"/>
