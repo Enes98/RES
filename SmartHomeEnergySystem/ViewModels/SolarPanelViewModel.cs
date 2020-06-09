@@ -36,7 +36,7 @@ namespace SmartHomeEnergySystem.ViewModels
         public void loadSolarPanels()
         {
             solarPanels = new ObservableCollection<SolarPanelModel>();
-
+    
             using (dbSHESEntities entity = new dbSHESEntities())
             {
                 List<SolarPanelTable> cons = entity.SolarPanelTables.ToList<SolarPanelTable>();
@@ -49,6 +49,7 @@ namespace SmartHomeEnergySystem.ViewModels
                     }
                 }
             };
+            
         }
 
         private bool CanDeletePanel()

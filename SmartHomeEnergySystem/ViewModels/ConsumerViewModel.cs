@@ -17,7 +17,9 @@ namespace SmartHomeEnergySystem.ViewModels
         private ConsumerModel selectedConsumer;
 
         public static MyICommand DeleteConsumerCommand { get; set; }
-        
+        public static MyICommand TurnOffCommand { get; set; }
+        public static MyICommand TurnOnCommand { get; set; }
+
         public ConsumerModel SelectedConsumer
         {
             get { return selectedConsumer; }
@@ -25,6 +27,8 @@ namespace SmartHomeEnergySystem.ViewModels
             {
                 selectedConsumer = value;
                 DeleteConsumerCommand.RaiseCanExecuteChanged();
+                TurnOffCommand.RaiseCanExecuteChanged();
+                TurnOnCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -32,6 +36,8 @@ namespace SmartHomeEnergySystem.ViewModels
         {
             loadConsumers();
             DeleteConsumerCommand = new MyICommand(OnDeleteConsumer, CanDeleteConsumer);
+            TurnOffCommand = new MyICommand(TurnOff, CanTurnOff);
+            TurnOnCommand = new MyICommand(TurnOn, CanTurnOn);
         }
 
         private void loadConsumers()
@@ -58,5 +64,30 @@ namespace SmartHomeEnergySystem.ViewModels
             DeleteConsumerCommand deleteCommandC = new DeleteConsumerCommand(SelectedConsumer);
             deleteCommandC.Execute();
         }
+
+
+
+
+        private bool CanTurnOn()
+        {
+            return (SelectedConsumer != null && SelectedConsumer.State == Enums.ConsumerEnum.OFF);
+        }
+        private bool CanTurnOff()
+        {
+            return (SelectedConsumer != null && SelectedConsumer.State == Enums.ConsumerEnum.ON);
+        }
+
+        private void TurnOff()
+        {
+            TurnOffCommand cmd = new TurnOffCommand(SelectedConsumer);
+            cmd.Execute();
+        }
+
+        private void TurnOn()
+        {
+            TurnOnCommand cmd = new TurnOnCommand(SelectedConsumer);
+            cmd.Execute();
+        }
+
     }
 }
