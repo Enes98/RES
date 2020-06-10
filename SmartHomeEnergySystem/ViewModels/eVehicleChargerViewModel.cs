@@ -21,6 +21,8 @@ namespace SmartHomeEnergySystem.ViewModels
         public static MyICommand StartChargingCommand { get; set; }
         public static MyICommand StopChargingCommand { get; set; }
 
+        public static bool punjenje;
+
 
         public eVehicleChargerModel SelectedVehicle
         {
@@ -68,7 +70,7 @@ namespace SmartHomeEnergySystem.ViewModels
                         if (temp == 60)
                         {
                             eVehicleChargerViewModel.Vehicles[0].Capacity++;
-                            temp = 0;
+                            temp = 0; 
                         }
                     }
                     Thread.Sleep(1000);
@@ -76,5 +78,8 @@ namespace SmartHomeEnergySystem.ViewModels
             }).Start();
 
         }
+
+
+
     }
 }

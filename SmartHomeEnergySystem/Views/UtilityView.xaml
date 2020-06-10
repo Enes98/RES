@@ -9,11 +9,34 @@
     <UserControl.Background>
         <SolidColorBrush Opacity="0.3" Color="LightBlue"/>
     </UserControl.Background>
-    <Grid>
-        <Label Content="Utility View" HorizontalAlignment="Left" Height="61" Margin="40,41,0,0" VerticalAlignment="Top" Width="288"/>
+    <Grid Margin="10,10,0,-0.4">
+        <Image Source="/Images/utilll.png" Margin="558,250,0,22" />
+        <DataGrid
+                Opacity="0.7"
+                x:Name="listBoxPanels"
+			
+				CanUserAddRows="True"
+				CanUserDeleteRows="False"
+				SelectionMode="Single"
+				CanUserResizeColumns="False"
+				IsReadOnly="True"
+				AutoGenerateColumns="False"
+				HeadersVisibility="Column" Margin="33,34,33,356.6"
+				>
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn FontSize="25" Header="Production [kWh]" Width="*" Binding="{Binding Path=Name}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="25" Header="Consumption [kWh]" Width="*" Binding="{Binding Path=MaxPower}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="25" Header="For Sale [kWh]" Width="*" Binding="{Binding Path=CurrentPower}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="25" Header="Price [$/kWh]" Width="*" Binding="{Binding Path=CurrentPower}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
 
-      
-        
-        
+
+
     </Grid>
 </UserControl>

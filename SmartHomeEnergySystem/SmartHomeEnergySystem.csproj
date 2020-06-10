@@ -199,6 +199,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model2.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Images\secondddd.webp" />
     <None Include="Model2.edmx.diagram">
       <DependentUpon>Model2.edmx</DependentUpon>
     </None>
@@ -230,6 +231,15 @@
     <Resource Include="Data\Clock.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\first.jpg" />
+    <Resource Include="Images\thirdd.png" />
+    <Resource Include="Images\trnasmiss.png" />
+    <Resource Include="Images\iova.jpg" />
+    <Resource Include="Images\ova.jpg" />
+    <Resource Include="Images\icOK.jpg" />
+    <Resource Include="Images\iovajeOK.jpg" />
+    <Resource Include="Images\ovaDefinitivno.jpg" />
+    <Resource Include="Images\ovaDefinitivno - Copy.jpg" />
     <Content Include="Model2.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model2.Context.cs</LastGenOutput>

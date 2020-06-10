@@ -69,6 +69,7 @@ namespace SmartHomeEnergySystem.Views
         {
             if((eVehicleChargerViewModel.Vehicles[0].Connected == Enums.VehicleEnumConnect.CONNECTED))
             {
+                eVehicleChargerViewModel.punjenje = true;
                 eVehicleChargerViewModel.Vehicles[0].Charging = Enums.VehicleEnumCharging.CHARGING;
                 eVehicleChargerViewModel.ChargingMethod();
             }
@@ -77,6 +78,7 @@ namespace SmartHomeEnergySystem.Views
         private void btnStopSCharging_Click(object sender, RoutedEventArgs e)
         {
             eVehicleChargerViewModel.Vehicles[0].Charging = Enums.VehicleEnumCharging.IDLE;
+            eVehicleChargerViewModel.punjenje = false;
         }
     }
 }

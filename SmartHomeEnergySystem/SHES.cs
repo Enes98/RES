@@ -32,6 +32,8 @@ namespace SmartHomeEnergySystem
             consumer = cs;
             vehicle = ev;
             BatteryManagement();
+            eVehicleManagement();
+            
         }
 
         private void BatteryManagement()
@@ -58,6 +60,74 @@ namespace SmartHomeEnergySystem
                     }
                 }
             }).Start();
+        }
+
+        /*
+        private void eVehicleManagement()
+        {
+            double temp = 0;
+            new Thread(() =>
+            {
+                while(true)
+                {
+                    if((ClockModel.Time.Hour>=3) && (ClockModel.Time.Hour<=6))
+                    {
+                        if(eVehicleChargerViewModel.Vehicles[0].Connected==Enums.VehicleEnumConnect.CONNECTED)
+                        {
+                            eVehicleChargerViewModel.Vehicles[0].Charging = Enums.VehicleEnumCharging.CHARGING;
+                            //eVehicleChargerViewModel.ChargingMethod();
+                            while (true)
+                            {
+                                if ((eVehicleChargerViewModel.Vehicles[0].Charging == Enums.VehicleEnumCharging.CHARGING) && (eVehicleChargerViewModel.Vehicles[0].Capacity < eVehicleChargerViewModel.Vehicles[0].MaxCapacity) && (ClockModel.Time.Hour<6))
+                                {
+                                    temp += ClockModel.Time.Minute;
+                                    if (temp == 60)
+                                    {
+                                        eVehicleChargerViewModel.Vehicles[0].Capacity++;
+                                        temp = 0;
+                                    }
+                                }
+                                Thread.Sleep(1000);
+                            } 
+                        }
+                    }
+                }
+            }
+            ).Start();
+        }
+        */
+
+        private void eVehicleManagement()
+        {
+            double temp = 0;
+            new Thread(() =>
+            {
+                while (true)
+                {
+                    if ((ClockModel.Time.Hour >= 3) && (ClockModel.Time.Hour < 6))
+                    {
+                        if ((eVehicleChargerViewModel.Vehicles[0].Connected == Enums.VehicleEnumConnect.CONNECTED) && (eVehicleChargerViewModel.Vehicles[0].Capacity < eVehicleChargerViewModel.Vehicles[0].MaxCapacity))
+                        {
+                            eVehicleChargerViewModel.Vehicles[0].Charging = Enums.VehicleEnumCharging.CHARGING;
+                            
+                           temp += ClockModel.Time.Minute;
+                           if (temp == 60)
+                           {
+                                eVehicleChargerViewModel.Vehicles[0].Capacity++;
+                                temp = 0;
+                           }
+                             Thread.Sleep(1000);    
+                        }
+                    }
+                    else if((eVehicleChargerViewModel.punjenje != true))
+                    {
+                        eVehicleChargerViewModel.Vehicles[0].Charging = Enums.VehicleEnumCharging.IDLE;
+                    }
+
+                   // eVehicleChargerViewModel.Vehicles[0].Charging = Enums.VehicleEnumCharging.IDLE;
+                }
+            }
+            ).Start();
         }
 
 
