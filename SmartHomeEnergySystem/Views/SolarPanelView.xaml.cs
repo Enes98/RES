@@ -35,7 +35,7 @@ namespace SmartHomeEnergySystem.Views
             if ((string.IsNullOrEmpty(textBoxName.Text)) || (string.IsNullOrEmpty(textBoxMaxPower.Text)))
                 return;
 
-            SolarPanelViewModel.solarPanels.Add(new SolarPanelModel(textBoxName.Text, Double.Parse(textBoxMaxPower.Text), 0));
+            SolarPanelViewModel.solarPanels.Add(new SolarPanelModel(textBoxName.Text, Double.Parse(textBoxMaxPower.Text), (SHES.sunPower* Double.Parse(textBoxMaxPower.Text)/100)));
 
             using (dbSHESEntities entity = new dbSHESEntities())
             {
@@ -59,14 +59,14 @@ namespace SmartHomeEnergySystem.Views
             SHES.sunPower = double.Parse(textBoxSunPower.Text);
             new Thread(() =>
             {
-                while(true)
-                {
+                //while(true)
+                //{
                     try
                     {
                         SolarPanelViewModel.Refresh();
                     }
                     catch { }
-                }
+               // }
             }).Start();
             
         }

@@ -69,10 +69,10 @@ namespace SmartHomeEnergySystem.ViewModels
 
             foreach (SolarPanelModel spm in solarPanels)
             {
-                if (SHES.sunPower >= spm.MaxPower)
+                if (SHES.sunPower >= 100)
                     spm.CurrentPower = spm.MaxPower;
                 else
-                    spm.CurrentPower = SHES.sunPower;
+                 spm.CurrentPower = spm.MaxPower*SHES.sunPower/100;
             }
         }
     }

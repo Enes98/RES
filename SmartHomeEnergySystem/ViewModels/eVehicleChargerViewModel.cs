@@ -1,9 +1,12 @@
-﻿using SmartHomeEnergySystem.Models;
+﻿using SmartHomeEnergySystem.Command;
+using SmartHomeEnergySystem.Commands;
+using SmartHomeEnergySystem.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SmartHomeEnergySystem.ViewModels
@@ -12,9 +15,27 @@ namespace SmartHomeEnergySystem.ViewModels
     {
         public static ObservableCollection<eVehicleChargerModel> Vehicles { get; set; }
 
+        private eVehicleChargerModel selectedVehicle;
+        public static MyICommand ConnectCommand { get; set; }
+        public static MyICommand DisconnectCommand { get; set; }
+        public static MyICommand StartChargingCommand { get; set; }
+        public static MyICommand StopChargingCommand { get; set; }
+
+
+        public eVehicleChargerModel SelectedVehicle
+        {
+            get { return selectedVehicle; }
+            set
+            {
+                selectedVehicle = value;
+            }
+        }
+
+
         public eVehicleChargerViewModel()
         {
             loadVehicles();
+           // SelectedVehicle = Vehicles[0];
         }
 
         public void loadVehicles()
@@ -34,5 +55,26 @@ namespace SmartHomeEnergySystem.ViewModels
         }
 
 
+        public static void ChargingMethod()
+        {
+            double temp = 0;
+            new Thread(() =>
+            {
+                while (true)
+                {
+                    if ((eVehicleChargerViewModel.Vehicles[0].Charging == Enums.VehicleEnumCharging.CHARGING) && (eVehicleChargerViewModel.Vehicles[0].Capacity < eVehicleChargerViewModel.Vehicles[0].MaxCapacity))
+                    {
+                        temp += ClockModel.Time.Minute;
+                        if (temp == 60)
+                        {
+                            eVehicleChargerViewModel.Vehicles[0].Capacity++;
+                            temp = 0;
+                        }
+                    }
+                    Thread.Sleep(1000);
+                }
+            }).Start();
+
+        }
     }
 }

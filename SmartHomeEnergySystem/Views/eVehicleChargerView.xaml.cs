@@ -53,5 +53,30 @@ namespace SmartHomeEnergySystem.Views
                 }).Start();
             }
         }
+
+        private void btnConnect_Click(object sender, RoutedEventArgs e)
+        {
+            eVehicleChargerViewModel.Vehicles[0].Connected = Enums.VehicleEnumConnect.CONNECTED;
+        }
+
+        private void btnDisconnect_Click(object sender, RoutedEventArgs e)
+        {
+            eVehicleChargerViewModel.Vehicles[0].Connected = Enums.VehicleEnumConnect.DISCONNECTED;
+            eVehicleChargerViewModel.Vehicles[0].Charging = Enums.VehicleEnumCharging.IDLE;
+        }
+
+        private void btnStartCharging_Click(object sender, RoutedEventArgs e)
+        {
+            if((eVehicleChargerViewModel.Vehicles[0].Connected == Enums.VehicleEnumConnect.CONNECTED))
+            {
+                eVehicleChargerViewModel.Vehicles[0].Charging = Enums.VehicleEnumCharging.CHARGING;
+                eVehicleChargerViewModel.ChargingMethod();
+            }
+        }
+
+        private void btnStopSCharging_Click(object sender, RoutedEventArgs e)
+        {
+            eVehicleChargerViewModel.Vehicles[0].Charging = Enums.VehicleEnumCharging.IDLE;
+        }
     }
 }

@@ -26,18 +26,18 @@ namespace SmartHomeEnergySystem.ViewModels
             set
             {
                 selectedConsumer = value;
-                DeleteConsumerCommand.RaiseCanExecuteChanged();
                 TurnOffCommand.RaiseCanExecuteChanged();
                 TurnOnCommand.RaiseCanExecuteChanged();
+                DeleteConsumerCommand.RaiseCanExecuteChanged();
             }
         }
 
         public ConsumerViewModel()
         {
             loadConsumers();
-            DeleteConsumerCommand = new MyICommand(OnDeleteConsumer, CanDeleteConsumer);
             TurnOffCommand = new MyICommand(TurnOff, CanTurnOff);
             TurnOnCommand = new MyICommand(TurnOn, CanTurnOn);
+            DeleteConsumerCommand = new MyICommand(OnDeleteConsumer, CanDeleteConsumer);
         }
 
         private void loadConsumers()

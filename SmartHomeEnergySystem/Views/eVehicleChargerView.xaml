@@ -14,10 +14,13 @@
     <Grid>
         <Label FontSize="17" Content="  Set Current  Capacity:" HorizontalAlignment="Left" Height="46" Margin="33,57,0,0" VerticalAlignment="Top" Width="218" RenderTransformOrigin="-0.511,0.45"/>
         <TextBox Name="textBoxCapacitet" HorizontalAlignment="Left" Height="39" Margin="238,46,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="212" RenderTransformOrigin="0.506,1.118"/>
-        <Button Content="Connect" HorizontalAlignment="Left" Height="40" Margin="33,116,0,0" VerticalAlignment="Top" Width="91"/>
-        <Button Content="Disconnect" HorizontalAlignment="Left" Height="42" Margin="33,156,0,0" VerticalAlignment="Top" Width="91"/>
-        <Button Content="Start Charging" HorizontalAlignment="Left" Height="40" Margin="143,116,0,0" VerticalAlignment="Top" Width="91"/>
-        <Button Content="Stop Charging" HorizontalAlignment="Left" Height="42" Margin="143,156,0,0" VerticalAlignment="Top" Width="91"/>
+        <Button Click="btnConnect_Click" Name="btnConnect" Content="Connect" HorizontalAlignment="Left" Height="40" Margin="33,116,0,0" VerticalAlignment="Top" Width="91"/>
+        <Button Click="btnDisconnect_Click" Name="DisconnectBtn" Content="Disconnect" HorizontalAlignment="Left" Height="42" Margin="33,156,0,0" VerticalAlignment="Top" Width="91"/>
+        <Button Click="btnStartCharging_Click" Name="btnStartCharging" Content="Start Charging" HorizontalAlignment="Left" Height="40" Margin="143,116,0,0" VerticalAlignment="Top" Width="91"/>
+        <Button Click="btnStopSCharging_Click" Name="btnStopSCharging" Content="Stop Charging" HorizontalAlignment="Left" Height="42" Margin="143,156,0,0" VerticalAlignment="Top" Width="91"/>
+        
+        
+        
         <!--
         <Label BorderBrush="Black" BorderThickness="1" Background="White" Opacity="0.7" Content="Name" HorizontalAlignment="Left" Height="33" Margin="33,271,0,0" VerticalAlignment="Top" Width="110"/>
         <Label BorderBrush="Black" BorderThickness="1" Background="White" Opacity="0.7" Content="Max Power" HorizontalAlignment="Left" Height="33" Margin="143,271,0,0" VerticalAlignment="Top" Width="110"/>
@@ -56,8 +59,8 @@
             <DataGrid.Columns>
                 <DataGridTextColumn FontSize="20" Header="Name" Width="*" Binding="{Binding Path=Name}"></DataGridTextColumn>
                 <DataGridTextColumn FontSize="20" Header="Max power [kW]" Width="*" Binding="{Binding Path=MaxPower}"></DataGridTextColumn>
-                <DataGridTextColumn FontSize="20" Header="Max Capacity [kW]" Width="*" Binding="{Binding Path=MaxCapacity}"></DataGridTextColumn>
-                <DataGridTextColumn FontSize="20" Header="Capacity [kW]" Width="*" Binding="{Binding Path=Capacity}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="20" Header="Max Capacity [h]" Width="*" Binding="{Binding Path=MaxCapacity}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="20" Header="Capacity [h]" Width="*" Binding="{Binding Path=Capacity}"></DataGridTextColumn>
                 <DataGridTextColumn FontSize="15" Header="Charging" Width="*" Binding="{Binding Path=Charging}"></DataGridTextColumn>
                 <DataGridTextColumn FontSize="15" Header="Connected" Width="*" Binding="{Binding Path=Connected}"></DataGridTextColumn>
                 
