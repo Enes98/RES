@@ -4,12 +4,33 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SmartHomeEnergySystem.Views"
+             
+           
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" d:DataContext="{d:DesignInstance local:ChartView}">
     <UserControl.Background>
-        <SolidColorBrush Opacity="0.3" Color="LightBlue"/>
+        <SolidColorBrush Opacity="0.4" Color="Black"/>
     </UserControl.Background>
+
     <Grid>
-        <Label Content="CHARTTT" Margin="0,0,386,206"></Label>
+        <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Left" Margin="69,159,74,23.6">
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis Title="" Labels="{Binding Labels}">
+
+                    <lvc:Axis.Separator>
+                        <lvc:Separator Step="1" />
+                    </lvc:Axis.Separator>
+
+                </lvc:Axis>
+            </lvc:CartesianChart.AxisX>
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Title="" LabelFormatter="{Binding Formatter}"></lvc:Axis>
+            </lvc:CartesianChart.AxisY>
+        </lvc:CartesianChart>
+        <DatePicker Name="dateTime1" HorizontalAlignment="Left" Height="33" Margin="26,24,0,0" VerticalAlignment="Top" Width="146"/>
+        <Label Name="labelPrice" Background="White" Opacity="0.6" HorizontalAlignment="Left" Height="33" Margin="26,62,0,0" VerticalAlignment="Top" Width="180"/>
     </Grid>
+
+
 </UserControl>

@@ -22,15 +22,16 @@ namespace SmartHomeEnergySystem
         public SolarPanelViewModel solar;
         public ConsumerViewModel consumer;
         public eVehicleChargerViewModel vehicle;
-        
+        public ChartViewModel chart;
 
-        public SHES(BatteryViewModel bt, UtilityViewModel ut, SolarPanelViewModel sp, ConsumerViewModel cs, eVehicleChargerViewModel ev)
+        public SHES(BatteryViewModel bt, UtilityViewModel ut, SolarPanelViewModel sp, ConsumerViewModel cs, eVehicleChargerViewModel ev, ChartViewModel ch)
         {
             battery = bt;
             utility = ut;
             solar = sp;
             consumer = cs;
             vehicle = ev;
+            chart = ch;
             BatteryManagement();
             eVehicleManagement();
             

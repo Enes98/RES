@@ -14,6 +14,7 @@ namespace SmartHomeEnergySystem.ViewModels
         private SolarPanelViewModel solar = new SolarPanelViewModel();
         private ConsumerViewModel consumer = new ConsumerViewModel();
         private eVehicleChargerViewModel vehicle = new eVehicleChargerViewModel();
+        private ChartViewModel chart = new ChartViewModel();
         private SHES shes;
 
         protected void NotifyPropertyChanged(string propertyName)
@@ -28,7 +29,7 @@ namespace SmartHomeEnergySystem.ViewModels
 
         public MainWindowViewModel()
         {
-           shes = new SHES(battery, utility, solar, consumer, vehicle);
+           shes = new SHES(battery, utility, solar, consumer, vehicle, chart);
         }
     }
 }

@@ -29,6 +29,7 @@ namespace SmartHomeEnergySystem
         public SolarPanelViewModel s = new SolarPanelViewModel();
         public ConsumerViewModel c = new ConsumerViewModel();
         public eVehicleChargerViewModel v = new eVehicleChargerViewModel();
+        public ChartViewModel ch = new ChartViewModel();
 
         public MainWindow()
         {
@@ -38,7 +39,7 @@ namespace SmartHomeEnergySystem
             t1.IsBackground = true;
             t1.Start();
 
-            SHES shes = new SHES(bt, ut, s, c, v);
+            SHES shes = new SHES(bt, ut, s, c, v, ch);
         }
 
 
