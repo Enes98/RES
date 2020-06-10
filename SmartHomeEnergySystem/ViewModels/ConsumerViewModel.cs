@@ -89,5 +89,19 @@ namespace SmartHomeEnergySystem.ViewModels
             cmd.Execute();
         }
 
+         public static double ConsumerConsumption()
+         {
+            double sum = 0;
+            foreach(var cons in consumers)
+            {
+                if(cons.State==Enums.ConsumerEnum.ON)
+                {
+                    sum += cons.Consumption;
+                }
+
+            }
+            return sum;
+         }
+
     }
 }

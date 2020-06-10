@@ -49,7 +49,7 @@
 				CanUserResizeColumns="False"
 				IsReadOnly="True"
 				AutoGenerateColumns="False"
-				HeadersVisibility="Column" Margin="19,312,23,55.6"
+				HeadersVisibility="Column" Margin="19,358,23,61.6"
 				>
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="{x:Type DataGridColumnHeader}">

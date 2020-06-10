@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:SmartHomeEnergySystem.Views"
+             xmlns:local="clr-namespace:SmartHomeEnergySystem.Views" 
+             xmlns:viewmodels="clr-namespace:SmartHomeEnergySystem.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Background>
@@ -13,15 +14,15 @@
         <Image Source="/Images/utilll.png" Margin="558,250,0,22" />
         <DataGrid
                 Opacity="0.7"
-                x:Name="listBoxPanels"
-			
+                x:Name="listBoxUtilities"
+			    ItemsSource="{Binding Source={x:Static viewmodels:UtilityViewModel.Utilities}}"
 				CanUserAddRows="True"
 				CanUserDeleteRows="False"
 				SelectionMode="Single"
 				CanUserResizeColumns="False"
 				IsReadOnly="True"
 				AutoGenerateColumns="False"
-				HeadersVisibility="Column" Margin="33,34,33,356.6"
+				HeadersVisibility="Column" Margin="33,34,33,369"
 				>
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -29,10 +30,10 @@
                 </Style>
             </DataGrid.ColumnHeaderStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn FontSize="25" Header="Production [kWh]" Width="*" Binding="{Binding Path=Name}"></DataGridTextColumn>
-                <DataGridTextColumn FontSize="25" Header="Consumption [kWh]" Width="*" Binding="{Binding Path=MaxPower}"></DataGridTextColumn>
-                <DataGridTextColumn FontSize="25" Header="For Sale [kWh]" Width="*" Binding="{Binding Path=CurrentPower}"></DataGridTextColumn>
-                <DataGridTextColumn FontSize="25" Header="Price [$/kWh]" Width="*" Binding="{Binding Path=CurrentPower}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="25" Header="Production [kWh]" Width="*" Binding="{Binding Path=Production}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="25" Header="Consumption [kWh]" Width="*" Binding="{Binding Path=Consumption}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="25" Header="For Sale [kWh]" Width="*" Binding="{Binding Path=ExchangePower}"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="25" Header="Price [$/kWh]" Width="*" Binding="{Binding Path=Price}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
 

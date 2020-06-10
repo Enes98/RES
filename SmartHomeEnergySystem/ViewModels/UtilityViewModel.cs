@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 
@@ -11,54 +12,54 @@ namespace SmartHomeEnergySystem.ViewModels
 {
     public class UtilityViewModel
     {
-        /*
-        public ObservableCollection<UtilityModel> Utilities { get; set; }
+        public static ObservableCollection<UtilityModel> Utilities { get; set; }
 
-        public Command<UtilityModel> RemoveCommand
+        private UtilityModel selectedUtility;
+
+        public UtilityModel SelectedUtility
         {
-            get
+            get { return selectedUtility; }
+            set
             {
-                return new Command<UtilityModel>((utility) =>
-                {
-                    Utilities.Remove(utility);
-                });
+                selectedUtility = value;
             }
         }
-
-
-
+        
         public UtilityViewModel()
         {
-            Utilities = new ObservableCollection<UtilityModel>
+            Utilities = new ObservableCollection<UtilityModel>()
             {
-                new UtilityModel
-                {
-                    ExchangePower = 23,
-                    Price = 66
-                },
-                 new UtilityModel
-                {
-                    ExchangePower = 45,
-                    Price = 99
-                },
-                  new UtilityModel
-                {
-                    ExchangePower = 123,
-                    Price = 166
-                },
-                   new UtilityModel
-                {
-                    ExchangePower = 223,
-                    Price = 266
-                },
-                    new UtilityModel
-                {
-                    ExchangePower = 623,
-                    Price = 666
-                }
+                new UtilityModel()
             };
+            //ucitavanje iz baze!
+
+            CalculateProduction();
+            
         }
-        */
+
+
+        public void CalculateProduction()
+        {
+            new Thread(()=>
+            {
+                while (true)
+                {
+                    
+                    Thread.Sleep(500);
+                    double product = SolarPanelViewModel.SolarPanelProduction() + BatteryViewModel.BatteryProduction();
+                    double cons = ConsumerViewModel.ConsumerConsumption() + BatteryViewModel.BatteryConsumption() + eVehicleChargerViewModel.VehicleConsumption();
+
+                    Utilities[0].Production = product;
+                    Utilities[0].Consumption = cons;
+                    Utilities[0].ExchangePower = product - cons;
+                    Utilities[0].Price = Utilities[0].ExchangePower * 0.2;
+
+                    Thread.Sleep(500);
+                }
+            }).Start();
+        }
+
+
 
     }
 }

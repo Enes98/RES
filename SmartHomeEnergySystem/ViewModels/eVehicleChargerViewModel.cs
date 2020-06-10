@@ -80,6 +80,16 @@ namespace SmartHomeEnergySystem.ViewModels
         }
 
 
+        public static double VehicleConsumption()
+        {
+           
+            if(Vehicles[0].Charging == Enums.VehicleEnumCharging.CHARGING)
+            {
+                return Vehicles[0].MaxPower;
+            }
+            return 0;
+        }
+
 
     }
 }

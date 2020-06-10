@@ -1,4 +1,5 @@
 ﻿using SmartHomeEnergySystem.Models;
+using SmartHomeEnergySystem.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -25,6 +26,8 @@ namespace SmartHomeEnergySystem.Views
         public UtilityView()
         {
             InitializeComponent();
+            this.DataContext = new UtilityViewModel();
+            listBoxUtilities.ItemsSource = UtilityViewModel.Utilities;
         }
     }
 }

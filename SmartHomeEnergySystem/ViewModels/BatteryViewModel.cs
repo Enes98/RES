@@ -146,21 +146,35 @@ namespace SmartHomeEnergySystem.ViewModels
             }
         }
 
+
         public static double BatteryConsumption()
         {
             double sum = 0;
-            if (BatteryViewModel.Batteries != null)
+            foreach(var bat in Batteries)
             {
-                foreach (var bat in BatteryViewModel.Batteries)
+                if(bat.State == Enums.BatteryEnum.CHARGING)
                 {
-                    if (bat.State == Enums.BatteryEnum.CHARGING)
-                        sum += bat.MaxPower;
+                    sum += bat.MaxPower;
                 }
             }
             return sum;
         }
-        
 
+
+        public static double BatteryProduction()
+        {
+            double sum = 0;
+            foreach(var bat in Batteries)
+            {
+                if(bat.State==Enums.BatteryEnum.DISCHARGING)
+                {
+                    sum += bat.MaxPower;
+                }
+            }
+            return sum;
+        }
+
+       
        
 
 

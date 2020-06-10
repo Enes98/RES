@@ -11,6 +11,27 @@ namespace SmartHomeEnergySystem.Models
     {
         private double exchangePower;
         private double price;
+        private double consumption;
+        private double production;
+
+        public double Consumption
+        {
+            get { return consumption; }
+            set
+            {
+                consumption = value;
+                OnPropertyChanged("Consumption");
+            }
+        }
+        public double Production
+        {
+            get { return production; }
+            set
+            {
+                production = value;
+                OnPropertyChanged("Production");
+            }
+        }
 
         public double Price
         {
@@ -35,11 +56,15 @@ namespace SmartHomeEnergySystem.Models
         {
             ExchangePower = 0;
             Price = 0;
+            Consumption = 0;
+            Production = 0;
         }
-        public UtilityModel(double cp, double p)
+        public UtilityModel(double ep, double price, double consumption, double production)
         {
-            ExchangePower = cp;
-            Price = p;
+            ExchangePower = ep;
+            Price = price;
+            Consumption = consumption;
+            Production = production;
         }
         
         public event PropertyChangedEventHandler PropertyChanged;
@@ -51,5 +76,10 @@ namespace SmartHomeEnergySystem.Models
                 this.PropertyChanged(this, args);
             }
         }
+
+
     }
+
+
+
 }

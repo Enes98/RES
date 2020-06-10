@@ -42,7 +42,7 @@ namespace SmartHomeEnergySystem
             {
                 while(true)
                 {
-                    if ((ClockModel.Time.Hour >= 3) && (ClockModel.Time.Hour <= 6))
+                    if ((ClockModel.Time.Hour >= 3) && (ClockModel.Time.Hour < 6))
                     {
                         battery.StartCharging();
                     }
@@ -62,41 +62,7 @@ namespace SmartHomeEnergySystem
             }).Start();
         }
 
-        /*
-        private void eVehicleManagement()
-        {
-            double temp = 0;
-            new Thread(() =>
-            {
-                while(true)
-                {
-                    if((ClockModel.Time.Hour>=3) && (ClockModel.Time.Hour<=6))
-                    {
-                        if(eVehicleChargerViewModel.Vehicles[0].Connected==Enums.VehicleEnumConnect.CONNECTED)
-                        {
-                            eVehicleChargerViewModel.Vehicles[0].Charging = Enums.VehicleEnumCharging.CHARGING;
-                            //eVehicleChargerViewModel.ChargingMethod();
-                            while (true)
-                            {
-                                if ((eVehicleChargerViewModel.Vehicles[0].Charging == Enums.VehicleEnumCharging.CHARGING) && (eVehicleChargerViewModel.Vehicles[0].Capacity < eVehicleChargerViewModel.Vehicles[0].MaxCapacity) && (ClockModel.Time.Hour<6))
-                                {
-                                    temp += ClockModel.Time.Minute;
-                                    if (temp == 60)
-                                    {
-                                        eVehicleChargerViewModel.Vehicles[0].Capacity++;
-                                        temp = 0;
-                                    }
-                                }
-                                Thread.Sleep(1000);
-                            } 
-                        }
-                    }
-                }
-            }
-            ).Start();
-        }
-        */
-
+       
         private void eVehicleManagement()
         {
             double temp = 0;

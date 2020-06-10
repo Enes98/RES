@@ -75,5 +75,15 @@ namespace SmartHomeEnergySystem.ViewModels
                  spm.CurrentPower = spm.MaxPower*SHES.sunPower/100;
             }
         }
+
+        public static double SolarPanelProduction()
+        {
+            double sum = 0;
+            foreach(var panel in solarPanels)
+            {
+               sum += panel.CurrentPower;
+            }
+            return sum;
+        }
     }
 }
