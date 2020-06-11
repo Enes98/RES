@@ -33,8 +33,7 @@ namespace SmartHomeEnergySystem
             vehicle = ev;
             chart = ch;
             BatteryManagement();
-            eVehicleManagement();
-            
+            eVehicleManagement();            
         }
 
         private void BatteryManagement()
@@ -62,7 +61,6 @@ namespace SmartHomeEnergySystem
                 }
             }).Start();
         }
-
        
         private void eVehicleManagement()
         {
@@ -96,8 +94,5 @@ namespace SmartHomeEnergySystem
             }
             ).Start();
         }
-
-
-
     }
 }

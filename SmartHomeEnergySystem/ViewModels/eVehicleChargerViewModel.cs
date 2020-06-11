@@ -23,7 +23,6 @@ namespace SmartHomeEnergySystem.ViewModels
 
         public static bool punjenje;
 
-
         public eVehicleChargerModel SelectedVehicle
         {
             get { return selectedVehicle; }
@@ -33,7 +32,6 @@ namespace SmartHomeEnergySystem.ViewModels
             }
         }
 
-
         public eVehicleChargerViewModel()
         {
             loadVehicles();
@@ -42,7 +40,6 @@ namespace SmartHomeEnergySystem.ViewModels
 
         public void loadVehicles()
         {
-
             Vehicles = new ObservableCollection<eVehicleChargerModel>();
             using (dbSHESEntities entity = new dbSHESEntities())
             {
@@ -55,7 +52,6 @@ namespace SmartHomeEnergySystem.ViewModels
 
             }
         }
-
 
         public static void ChargingMethod()
         {
@@ -76,9 +72,7 @@ namespace SmartHomeEnergySystem.ViewModels
                     Thread.Sleep(1000);
                 }
             }).Start();
-
         }
-
 
         public static double VehicleConsumption()
         {
@@ -89,7 +83,5 @@ namespace SmartHomeEnergySystem.ViewModels
             }
             return 0;
         }
-
-
     }
 }

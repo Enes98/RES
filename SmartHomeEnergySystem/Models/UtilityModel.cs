@@ -76,10 +76,5 @@ namespace SmartHomeEnergySystem.Models
                 this.PropertyChanged(this, args);
             }
         }
-
-
     }
-
-
-
 }

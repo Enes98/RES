@@ -48,8 +48,7 @@ namespace SmartHomeEnergySystem.ViewModels
                         solarPanels.Add(consumer);
                     }
                 }
-            };
-            
+            };            
         }
 
         private bool CanDeletePanel()

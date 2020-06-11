@@ -31,12 +31,9 @@ namespace SmartHomeEnergySystem.ViewModels
             {
                 new UtilityModel()
             };
-            //ucitavanje iz baze!
 
-            CalculateProduction();
-            
+            CalculateProduction();            
         }
-
 
         public void CalculateProduction()
         {
@@ -58,8 +55,5 @@ namespace SmartHomeEnergySystem.ViewModels
                 }
             }).Start();
         }
-
-
-
     }
 }

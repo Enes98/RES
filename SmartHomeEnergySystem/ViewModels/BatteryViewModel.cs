@@ -49,7 +49,6 @@ namespace SmartHomeEnergySystem.ViewModels
                     Batteries.Add(battery);
                 }
             };
-
         }
 
         private bool CanDeleteBattery() 
@@ -146,7 +145,6 @@ namespace SmartHomeEnergySystem.ViewModels
             }
         }
 
-
         public static double BatteryConsumption()
         {
             double sum = 0;
@@ -160,7 +158,6 @@ namespace SmartHomeEnergySystem.ViewModels
             return sum;
         }
 
-
         public static double BatteryProduction()
         {
             double sum = 0;
@@ -173,10 +170,5 @@ namespace SmartHomeEnergySystem.ViewModels
             }
             return sum;
         }
-
-       
-       
-
-
     }
 }

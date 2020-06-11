@@ -16,6 +16,19 @@
           <Property Name="CapacityMin" Type="float" />
           <Property Name="State" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="ChartTable">
+          <Key>
+            <PropertyRef Name="Date" />
+          </Key>
+          <Property Name="Date" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SolarPanel" Type="float" />
+          <Property Name="BaterryProduction" Type="float" />
+          <Property Name="BatteryConsumption" Type="float" />
+          <Property Name="ExchangePositive" Type="float" />
+          <Property Name="ExchangeNegative" Type="float" />
+          <Property Name="Consumer" Type="float" />
+          <Property Name="Price" Type="float" Nullable="false" />
+        </EntityType>
         <EntityType Name="ConsumerTable">
           <Key>
             <PropertyRef Name="Name" />
@@ -45,6 +58,7 @@
         </EntityType>
         <EntityContainer Name="dbSHESModelStoreContainer">
           <EntitySet Name="BatteryTable" EntityType="Self.BatteryTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChartTable" EntityType="Self.ChartTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ConsumerTable" EntityType="Self.ConsumerTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="eVehicleTable" EntityType="Self.eVehicleTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SolarPanelTable" EntityType="Self.SolarPanelTable" Schema="dbo" store:Type="Tables" />
@@ -69,6 +83,7 @@
           <EntitySet Name="ConsumerTables" EntityType="dbSHESModel.ConsumerTable" />
           <EntitySet Name="SolarPanelTables" EntityType="dbSHESModel.SolarPanelTable" />
           <EntitySet Name="eVehicleTables" EntityType="dbSHESModel.eVehicleTable" />
+          <EntitySet Name="ChartTables" EntityType="dbSHESModel.ChartTable" />
         </EntityContainer>
         <EntityType Name="ConsumerTable">
           <Key>
@@ -96,6 +111,19 @@
           <Property Name="Capacity" Type="Double" />
           <Property Name="Charging" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Connected" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ChartTable">
+          <Key>
+            <PropertyRef Name="Date" />
+          </Key>
+          <Property Name="Date" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SolarPanel" Type="Double" />
+          <Property Name="BaterryProduction" Type="Double" />
+          <Property Name="BatteryConsumption" Type="Double" />
+          <Property Name="ExchangePositive" Type="Double" />
+          <Property Name="ExchangeNegative" Type="Double" />
+          <Property Name="Consumer" Type="Double" />
+          <Property Name="Price" Type="Double" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -142,6 +170,20 @@
                 <ScalarProperty Name="MaxCapacity" ColumnName="MaxCapacity" />
                 <ScalarProperty Name="MaxPower" ColumnName="MaxPower" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChartTables">
+            <EntityTypeMapping TypeName="dbSHESModel.ChartTable">
+              <MappingFragment StoreEntitySet="ChartTable">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Consumer" ColumnName="Consumer" />
+                <ScalarProperty Name="ExchangeNegative" ColumnName="ExchangeNegative" />
+                <ScalarProperty Name="ExchangePositive" ColumnName="ExchangePositive" />
+                <ScalarProperty Name="BatteryConsumption" ColumnName="BatteryConsumption" />
+                <ScalarProperty Name="BaterryProduction" ColumnName="BaterryProduction" />
+                <ScalarProperty Name="SolarPanel" ColumnName="SolarPanel" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -16,7 +16,6 @@ namespace SmartHomeEnergySystem.Models
         private double exchangeNegative;
         private double consumer;
         private double price;
-        //private DateTime date;
 
         public double SolarPanel { get => solarPanel; set => solarPanel = value; }
         public double BatteryConsumption { get => batteryConsumption; set => batteryConsumption = value; }
@@ -31,7 +30,6 @@ namespace SmartHomeEnergySystem.Models
         {
 
         }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)

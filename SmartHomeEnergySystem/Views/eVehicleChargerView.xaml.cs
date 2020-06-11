@@ -31,8 +31,7 @@ namespace SmartHomeEnergySystem.Views
         }
 
         private void BtnSend_Click(object sender, RoutedEventArgs e)
-        {
- 
+        { 
             if (Validate(textBoxCapacitet))
             {
                 bool uspelo = false;

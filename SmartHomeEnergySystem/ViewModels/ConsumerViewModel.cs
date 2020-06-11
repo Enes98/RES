@@ -64,10 +64,7 @@ namespace SmartHomeEnergySystem.ViewModels
             DeleteConsumerCommand deleteCommandC = new DeleteConsumerCommand(SelectedConsumer);
             deleteCommandC.Execute();
         }
-
-
-
-
+        
         private bool CanTurnOn()
         {
             return (SelectedConsumer != null && SelectedConsumer.State == Enums.ConsumerEnum.OFF);
@@ -102,6 +99,5 @@ namespace SmartHomeEnergySystem.ViewModels
             }
             return sum;
          }
-
     }
 }

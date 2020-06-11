@@ -42,7 +42,6 @@ namespace SmartHomeEnergySystem
             SHES shes = new SHES(bt, ut, s, c, v, ch);
         }
 
-
         private void StartTime()
         {
             int hour = 0;
@@ -86,7 +85,6 @@ namespace SmartHomeEnergySystem
                     catch{ }
                 }
             }
-
         }
         #region ActiveUserControl
         private void ButtonExit_Click(object sender, RoutedEventArgs e)

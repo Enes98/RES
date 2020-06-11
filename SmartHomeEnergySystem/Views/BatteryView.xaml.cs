@@ -74,7 +74,6 @@ namespace SmartHomeEnergySystem.Views
 
         public bool Validate(TextBox check)
         {
-
             if (!string.IsNullOrEmpty(check.Text))
             {
                 return true;

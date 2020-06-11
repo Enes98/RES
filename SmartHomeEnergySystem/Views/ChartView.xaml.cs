@@ -33,33 +33,27 @@ namespace SmartHomeEnergySystem.Views
             InitializeComponent();
 
             time = dateParse();
-            //Charting();
-
+            dateTime1.DisplayDateStart = new DateTime(2020, 6, 10);
             SeriesCollection lista = new SeriesCollection
             {
                 new ColumnSeries
-                        {
-                           // Title = "Solar Panel",
-                            //Values = new ChartValues<double> { 10, 50, 39, 50, 6, 234}
-
-                            Values = new ChartValues<double>
-                            {
-                                0,
-                                0,
-                                0,
-                                0,
-                                0,
-                                0
-                            }
-                        }
+                {
+                    Values = new ChartValues<double>
+                    {
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    }
+                }
             };
-
             Labels = new[] { "Panels", "Battery(+)", "Battery(-)", "Utility(+)", "Utility(-)", "Consumers" };
             //AxisY.LabelFormatter = value => value.ToString("N");
             
             DataContext = this;
         }
-
         public SeriesCollection SeriesCollection { get; set; }
         public string[] Labels { get; set; }
         public Func<double, string> Formatter { get; set; }
@@ -80,20 +74,23 @@ namespace SmartHomeEnergySystem.Views
         {
             string date = dateTime1.SelectedDate.ToString();
             time = DateTime.Parse(date);
-            Charting();
+            if(ChartViewModel.Chart.ContainsKey(time))
+            {
+                Charting();
+            }
+            else
+            {
+                MessageBox.Show("Data for selected date does not exists!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Charting()
-        {
-           
+        {           
             labelPrice.Content = ChartViewModel.Chart[time].Price;
             SeriesCollection series= new SeriesCollection
             {
                         new ColumnSeries
                         {
-                           // Title = "Solar Panel",
-                            //Values = new ChartValues<double> { 10, 50, 39, 50, 6, 234}
-
                             Values = new ChartValues<double>
                             {
                                 ChartViewModel.Chart[time].SolarPanel,
@@ -105,9 +102,7 @@ namespace SmartHomeEnergySystem.Views
                             }
                         }
             };
-
             DataChart.Series = series;
         }
-
     }
 }
