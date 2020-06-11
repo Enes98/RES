@@ -32,21 +32,36 @@ namespace SmartHomeEnergySystem.Views
 
         private void ButtonAddPanel_Click(object sender, RoutedEventArgs e)
         {
-            if ((string.IsNullOrEmpty(textBoxName.Text)) || (string.IsNullOrEmpty(textBoxMaxPower.Text)))
-                return;
 
-            SolarPanelViewModel.solarPanels.Add(new SolarPanelModel(textBoxName.Text, Double.Parse(textBoxMaxPower.Text), (SHES.sunPower* Double.Parse(textBoxMaxPower.Text)/100)));
-
-            using (dbSHESEntities entity = new dbSHESEntities())
+            if(Validate(textBoxName) && Validate(textBoxMaxPower))
             {
-                SolarPanelTable spmt = new SolarPanelTable()
+                double maxPower = 0;
+                bool uspelo = false;
+                uspelo = double.TryParse(textBoxMaxPower.Text, out maxPower);
+                if(uspelo && maxPower > 0)
                 {
-                    Name = textBoxName.Text,
-                    MaxPower = Double.Parse(textBoxMaxPower.Text),
-                    CurrentPower = 0
-                };
-                entity.SolarPanelTables.Add(spmt);
-                entity.SaveChanges();
+                    SolarPanelViewModel.solarPanels.Add(new SolarPanelModel(textBoxName.Text, maxPower, (SHES.sunPower * maxPower) / 100));
+
+                    using (dbSHESEntities entity = new dbSHESEntities())
+                    {
+                        SolarPanelTable spmt = new SolarPanelTable()
+                        {
+                            Name = textBoxName.Text,
+                            MaxPower = maxPower,
+                            CurrentPower = 0
+                        };
+                        entity.SolarPanelTables.Add(spmt);
+                        entity.SaveChanges();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect input", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Incorrect input", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
         }
@@ -56,19 +71,47 @@ namespace SmartHomeEnergySystem.Views
 
             if (string.IsNullOrEmpty(textBoxSunPower.Text))
                 SHES.sunPower = 0;
-            SHES.sunPower = double.Parse(textBoxSunPower.Text);
-            new Thread(() =>
+
+            if (Validate(textBoxSunPower))
             {
-                //while(true)
-                //{
-                    try
+                double result = 0;
+                bool uspelo = false;
+                uspelo = double.TryParse(textBoxSunPower.Text, out result);
+                if (uspelo && result >= 0)
+                {
+                    //SHES.sunPower = double.Parse(textBoxSunPower.Text);
+                    SHES.sunPower = result;
+                    new Thread(() =>
                     {
-                        SolarPanelViewModel.Refresh();
-                    }
-                    catch { }
-               // }
-            }).Start();
-            
+                        //while(true)
+                        //{
+                        try
+                        {
+                            SolarPanelViewModel.Refresh();
+                        }
+                        catch { }
+                        // }
+                    }).Start();
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect input", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Incorrect input", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        public bool Validate(TextBox check)
+        {
+
+            if (!string.IsNullOrEmpty(check.Text))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

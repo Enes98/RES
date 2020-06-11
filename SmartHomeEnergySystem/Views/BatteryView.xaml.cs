@@ -31,30 +31,55 @@ namespace SmartHomeEnergySystem.Views
 
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
-            if ((string.IsNullOrWhiteSpace(textBoxName.Text)) || (string.IsNullOrWhiteSpace(textBoxMaxPower.Text)) || string.IsNullOrWhiteSpace(textBoxCapacity.Text))
-                return;
-
-            lock(BatteryViewModel.Batteries)
+            if (Validate(textBoxName) && Validate(textBoxMaxPower) && Validate(textBoxCapacity))
             {
-                BatteryViewModel.Batteries.Add(new BatteryModel(textBoxName.Text, Double.Parse(textBoxMaxPower.Text), Double.Parse(textBoxCapacity.Text), 0));
-
-                using (dbSHESEntities entity = new dbSHESEntities())
+                bool p = false, c = false;
+                double pp = 0, cc = 0;
+                p = double.TryParse(textBoxMaxPower.Text, out pp);
+                c = double.TryParse(textBoxCapacity.Text, out cc);
+                if (p && c && pp >= 0 && cc >= 0)
                 {
-                    BatteryTable bmt = new BatteryTable()
+                    lock (BatteryViewModel.Batteries)
                     {
-                        Name = textBoxName.Text,
-                        MaxPower = Double.Parse(textBoxMaxPower.Text),
-                        Capacity = Double.Parse(textBoxCapacity.Text),
-                        CurrentCapacity = 0,
-                        CapacityMin = 0,
-                        State = Enums.BatteryEnum.IDLE.ToString()
-                    };
-                    entity.BatteryTables.Add(bmt);
-                    entity.SaveChanges();
-                }
+                        BatteryViewModel.Batteries.Add(new BatteryModel(textBoxName.Text, Double.Parse(textBoxMaxPower.Text), Double.Parse(textBoxCapacity.Text), 0));
 
-                BatteryViewModel.Refresh();
+                        using (dbSHESEntities entity = new dbSHESEntities())
+                        {
+                            BatteryTable bmt = new BatteryTable()
+                            {
+                                Name = textBoxName.Text,
+                                MaxPower = Double.Parse(textBoxMaxPower.Text),
+                                Capacity = Double.Parse(textBoxCapacity.Text),
+                                CurrentCapacity = 0,
+                                CapacityMin = 0,
+                                State = Enums.BatteryEnum.IDLE.ToString()
+                            };
+                            entity.BatteryTables.Add(bmt);
+                            entity.SaveChanges();
+                        }
+
+                        BatteryViewModel.Refresh();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect input", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
+            else
+            {
+                MessageBox.Show("Incorrect input", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        public bool Validate(TextBox check)
+        {
+
+            if (!string.IsNullOrEmpty(check.Text))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

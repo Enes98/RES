@@ -34,21 +34,45 @@ namespace SmartHomeEnergySystem.Views
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            if ((string.IsNullOrEmpty(textBoxName.Text)) || (string.IsNullOrEmpty(textBoxConsumption.Text)))
-                return;
-
-            ConsumerViewModel.consumers.Add(new ConsumerModel(textBoxName.Text, Double.Parse(textBoxConsumption.Text)));
-            using (dbSHESEntities entity = new dbSHESEntities())
+            if(Validate(textBoxName) && Validate(textBoxConsumption))
             {
-                ConsumerTable cmt = new ConsumerTable()
+                double result = 0;
+                bool uspelo = false;
+                uspelo = double.TryParse(textBoxConsumption.Text, out result);
+                if (uspelo && result >= 0)
                 {
-                    Name = textBoxName.Text,
-                    Consumption = Double.Parse(textBoxConsumption.Text),
-                    State = Enums.ConsumerEnum.OFF.ToString()
-                };
-                entity.ConsumerTables.Add(cmt);
-                entity.SaveChanges();
+                    ConsumerViewModel.consumers.Add(new ConsumerModel(textBoxName.Text, Double.Parse(textBoxConsumption.Text)));
+                    using (dbSHESEntities entity = new dbSHESEntities())
+                    {
+                        ConsumerTable cmt = new ConsumerTable()
+                        {
+                            Name = textBoxName.Text,
+                            Consumption = Double.Parse(textBoxConsumption.Text),
+                            State = Enums.ConsumerEnum.OFF.ToString()
+                        };
+                        entity.ConsumerTables.Add(cmt);
+                        entity.SaveChanges();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect input", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
+            else
+            {
+                MessageBox.Show("Incorrect input", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        public bool Validate(TextBox check)
+        {
+
+            if (!string.IsNullOrEmpty(check.Text))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

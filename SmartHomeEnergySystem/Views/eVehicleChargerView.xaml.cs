@@ -33,24 +33,35 @@ namespace SmartHomeEnergySystem.Views
         private void BtnSend_Click(object sender, RoutedEventArgs e)
         {
  
-            if (!string.IsNullOrEmpty(textBoxCapacitet.Text))
+            if (Validate(textBoxCapacitet))
             {
-                // eVehicleChargerViewModel.Vehicles[0].Capacity = Double.Parse(textBoxCapacitet.Text);
-                double temp = Double.Parse(textBoxCapacitet.Text);
-
-                new Thread(() =>
+                bool uspelo = false;
+                double result = 0;
+                uspelo = double.TryParse(textBoxCapacitet.Text, out result);
+                if(uspelo && result >= 0)
                 {
-                    try
+                    new Thread(() =>
                     {
-                        if (eVehicleChargerViewModel.Vehicles[0].MaxCapacity >= temp)
-                            eVehicleChargerViewModel.Vehicles[0].Capacity = temp;
-                        else
+                        try
                         {
-                            eVehicleChargerViewModel.Vehicles[0].Capacity = eVehicleChargerViewModel.Vehicles[0].MaxCapacity;
+                            if (eVehicleChargerViewModel.Vehicles[0].MaxCapacity >= result)
+                                eVehicleChargerViewModel.Vehicles[0].Capacity = result;
+                            else
+                            {
+                                eVehicleChargerViewModel.Vehicles[0].Capacity = eVehicleChargerViewModel.Vehicles[0].MaxCapacity;
+                            }
                         }
-                    }
-                    catch { }
-                }).Start();
+                        catch { }
+                    }).Start();
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect input", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Incorrect input", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -79,6 +90,16 @@ namespace SmartHomeEnergySystem.Views
         {
             eVehicleChargerViewModel.Vehicles[0].Charging = Enums.VehicleEnumCharging.IDLE;
             eVehicleChargerViewModel.punjenje = false;
+        }
+
+        public bool Validate(TextBox check)
+        {
+
+            if (!string.IsNullOrEmpty(check.Text))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
