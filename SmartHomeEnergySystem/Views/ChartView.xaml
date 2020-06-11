@@ -14,7 +14,7 @@
     </UserControl.Background>
 
     <Grid>
-        <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Left" Margin="69,159,74,23.6">
+        <lvc:CartesianChart x:Name="DataChart" Series="{Binding SeriesCollection}" LegendLocation="Left" Margin="42,159,47,23.6">
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis Title="" Labels="{Binding Labels}">
 
@@ -25,11 +25,13 @@
                 </lvc:Axis>
             </lvc:CartesianChart.AxisX>
             <lvc:CartesianChart.AxisY>
-                <lvc:Axis Title="" LabelFormatter="{Binding Formatter}"></lvc:Axis>
+                <lvc:Axis x:Name="AxisY" Title="" LabelFormatter="{Binding Formatter}"></lvc:Axis>
             </lvc:CartesianChart.AxisY>
         </lvc:CartesianChart>
-        <DatePicker Name="dateTime1" HorizontalAlignment="Left" Height="33" Margin="26,24,0,0" VerticalAlignment="Top" Width="146"/>
-        <Label Name="labelPrice" Background="White" Opacity="0.6" HorizontalAlignment="Left" Height="33" Margin="26,62,0,0" VerticalAlignment="Top" Width="180"/>
+        <DatePicker SelectedDateChanged="DateTimeMethod" Name="dateTime1" HorizontalAlignment="Left" Height="33" Margin="26,24,0,0" VerticalAlignment="Top" Width="146"/>
+        <Label Name="labelPrice" Background="White" Opacity="0.6" HorizontalAlignment="Left" Height="24" Margin="76,62,0,0" VerticalAlignment="Top" Width="96"/>
+        <Label x:Name="labelPrice_Copy" Content="Price:" Background="White" Opacity="0.6" HorizontalAlignment="Left" Height="24" Margin="26,62,0,0" VerticalAlignment="Top" Width="50"/>
+        <Label Content="Total consumption/production" HorizontalAlignment="Left" Height="56" Margin="251,51,0,0" VerticalAlignment="Top" Width="313" Foreground="White" FontSize="22"/>
     </Grid>
 
 

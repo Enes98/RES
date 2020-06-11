@@ -25,7 +25,20 @@ namespace SmartHomeEnergySystem.ViewModels
                 ExchangeNegative = -12,
                 Consumer = 90,
                 Price = 98
+            });
+
+            Chart.Add(new DateTime(2020, 6, 21),
+            new ChartModel()
+            {
+                SolarPanel = 10,
+                BatteryConsumption = 10,
+                BatteryProduction = 10,
+                ExchangePositive = 10,
+                ExchangeNegative = 10,
+                Consumer = 10,
+                Price = 10
             }
+
             );
         }
 
