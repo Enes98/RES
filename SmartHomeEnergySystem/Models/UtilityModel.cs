@@ -61,6 +61,9 @@ namespace SmartHomeEnergySystem.Models
         }
         public UtilityModel(double ep, double price, double consumption, double production)
         {
+            if (ep < 0 || price < 0 || consumption < 0 || production < 0)
+                throw new ArgumentException("Values must be positives!");
+
             ExchangePower = ep;
             Price = price;
             Consumption = consumption;

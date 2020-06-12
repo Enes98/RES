@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.1062
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHomeEnergySystem", "SmartHomeEnergySystem\SmartHomeEnergySystem.csproj", "{566599CC-C3F8-470C-A41E-D27CE5E34BCE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHomeEnergySystemTest", "SmartHomeEnergySystemTest\SmartHomeEnergySystemTest.csproj", "{44F63FE0-29FC-4960-8BB3-939B0CC9CBB4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{566599CC-C3F8-470C-A41E-D27CE5E34BCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{566599CC-C3F8-470C-A41E-D27CE5E34BCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{566599CC-C3F8-470C-A41E-D27CE5E34BCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44F63FE0-29FC-4960-8BB3-939B0CC9CBB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44F63FE0-29FC-4960-8BB3-939B0CC9CBB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44F63FE0-29FC-4960-8BB3-939B0CC9CBB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44F63FE0-29FC-4960-8BB3-939B0CC9CBB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

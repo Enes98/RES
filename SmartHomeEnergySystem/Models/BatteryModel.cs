@@ -85,6 +85,13 @@ namespace SmartHomeEnergySystem.Models
         
         public BatteryModel(string n, double mp, double c, double cc)
         {
+            if (n == "")
+                throw new ArgumentException("No name!");
+            else if (n == null)
+                throw new ArgumentNullException("No name!");
+            else if(mp < 0 || c < 0 || cc < 0)
+                throw new ArgumentException("Values must be positive!");
+
             Name = n;
             MaxPower = mp;
             Capacity = c;

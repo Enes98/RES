@@ -86,6 +86,13 @@ namespace SmartHomeEnergySystem.Models
         }
         public eVehicleChargerModel(string n, double mp, double c, double mc)
         {
+            if (n == null)
+                throw new ArgumentNullException("Name null!");
+            else if (n == "")
+                throw new ArgumentException("Name empty!");
+            else if (c < 0 || mc < 0 || mp < 0)
+                throw new ArgumentException("Values must be positive!");
+
             Name = n;
             MaxPower = mp;
             Capacity = c;

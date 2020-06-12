@@ -24,7 +24,6 @@ namespace SmartHomeEnergySystem.Models
         public double ExchangeNegative { get => exchangeNegative; set => exchangeNegative = value; }
         public double Consumer { get => consumer; set => consumer = value; }
         public double Price { get => price; set => price = value; }
-        // public DateTime Date { get => date; set => date = value; }
 
         public ChartModel()
         {

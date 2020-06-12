@@ -51,6 +51,13 @@ namespace SmartHomeEnergySystem.Models
         }
         public ConsumerModel(string n, double c)
         {
+            if (n == null)
+                throw new ArgumentNullException("Name null!");
+            else if (n == "")
+                throw new ArgumentException("Name empty!");
+            else if (c < 0)
+                throw new ArgumentException("Consumption must be positive!");
+
             Name = n;
             Consumption = c;
             State = ConsumerEnum.OFF;

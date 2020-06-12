@@ -49,6 +49,13 @@ namespace SmartHomeEnergySystem.Models
         }
         public SolarPanelModel(string n, double mp, double cp)
         {
+            if (n == null)
+                throw new ArgumentNullException("Null exception!");
+            else if(n == "")
+                throw new ArgumentException("Values must be positive!");
+            else if (mp < 0 || cp < 0)
+                throw new ArgumentException("Values must be positive!");
+
             Name = n;
             MaxPower = mp;
             CurrentPower = cp;
@@ -56,6 +63,13 @@ namespace SmartHomeEnergySystem.Models
 
         public SolarPanelModel(string n, double mp)
         {
+            if (n == null)
+                throw new ArgumentNullException("Null exception!");
+            else if (n == "")
+                throw new ArgumentException("Values must be positive!");
+            else if (mp < 0)
+                throw new ArgumentException("Values must be positive!");
+
             Name = n;
             MaxPower = mp;
             CurrentPower = 0;
